@@ -37,10 +37,10 @@ const HeaderSection: React.FC = () => {
         className={`fixed top-0 left-0 w-full z-[100] px-6 lg:px-12 transition-all duration-500 ${
           isScrolled 
             ? 'bg-white shadow-md border-b border-gray-100' 
-            : 'bg-transparent'
+            : 'bg-transparent border-b border-[#C8AC59]/30'
         }`}
         style={{ 
-          paddingTop: isScrolled ? '12px' : '20px',
+          paddingTop: isScrolled ? '12px' : '10px',
           paddingBottom: isScrolled ? '12px' : '0px'
         }}
       >
@@ -54,8 +54,12 @@ const HeaderSection: React.FC = () => {
               src={isScrolled ? "/Logo/only-icon.png" : "/Logo/svg icon.svg"} 
               alt="Numeral Doctrine Logo" 
               className={`w-auto object-contain transition-all duration-500 ${
-                isScrolled ? 'h-10 lg:h-12' : 'h-16 lg:h-32'
+                isScrolled ? 'h-10 lg:h-12' : 'h-20 lg:h-40'
               }`}
+              style={{ 
+                marginTop: isScrolled ? '0px' : '-35px',
+                marginBottom: isScrolled ? '0px' : '-20px'
+              }}
             />
           </button>
 
@@ -74,7 +78,7 @@ const HeaderSection: React.FC = () => {
             <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-outline-brand px-8 py-3 text-sm min-w-[220px]"
+                className="btn-outline-brand px-6 py-3 text-[13px] min-w-[200px]"
               >
                 Calculate your number
               </button>

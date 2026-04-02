@@ -137,7 +137,7 @@ const HeroSection: React.FC = () => {
             {/* Trust Statement */}
             <div
               ref={trustRef}
-              className="flex items-start gap-4 mb-10 p-5 rounded-xl bg-white/40 border border-gold/20 max-w-xl"
+              className="flex items-start gap-4 mb-10 p-6 rounded-xl glass-morphism max-w-xl"
             >
               <Shield className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
               <p className="font-body text-xs lg:text-sm text-[#1A0F0F]/90 leading-relaxed">
@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
               <button
                 ref={ctaRef}
                 onClick={() => scrollToSection('contact')}
-                className="btn-fill-brand px-12 py-5 text-sm uppercase shadow-xl min-w-[340px]"
+                className="btn-fill-brand px-10 py-5 text-[15px] uppercase min-w-[300px]"
               >
                 Book Your Consultation
               </button>
@@ -162,7 +162,7 @@ const HeroSection: React.FC = () => {
 
         {/* Right Image (35%) */}
         <div className="w-full lg:w-[35%] h-full relative overflow-hidden flex items-center justify-center px-0">
-          <div className="relative w-full h-[75%] lg:h-[90%] group hero-rotate-img">
+          <div className="relative w-full h-[80%] lg:h-[95%] group hero-rotate-img">
             <img 
               src="/images/homepage/hero image.png" 
               alt="Numerical Doctrine Hero" 
