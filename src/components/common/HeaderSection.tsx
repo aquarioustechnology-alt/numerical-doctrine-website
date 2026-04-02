@@ -36,9 +36,13 @@ const HeaderSection: React.FC = () => {
         ref={navRef}
         className={`fixed top-0 left-0 w-full z-[100] px-6 lg:px-12 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white shadow-md border-b border-gray-100 py-2 pt-2' 
-            : 'bg-transparent pt-5'
+            ? 'bg-white shadow-md border-b border-gray-100' 
+            : 'bg-transparent'
         }`}
+        style={{ 
+          paddingTop: isScrolled ? '12px' : '20px',
+          paddingBottom: isScrolled ? '12px' : '0px'
+        }}
       >
         <div className="flex items-center justify-between max-w-[1440px] mx-auto">
           {/* Logo */}
@@ -60,6 +64,7 @@ const HeaderSection: React.FC = () => {
             {navLinks.map((item) => (
               <button
                 key={item.label}
+                onClick={() => scrollToSection(item.id)}
                 className="font-body text-[15px] font-medium text-black uppercase nav-link-hover tracking-wider"
               >
                 {item.label}
@@ -69,7 +74,7 @@ const HeaderSection: React.FC = () => {
             <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-brand px-8 py-3.5 text-sm tracking-widest uppercase min-w-[220px]"
+                className="btn-outline-brand px-8 py-3 text-sm min-w-[220px]"
               >
                 Calculate your number
               </button>

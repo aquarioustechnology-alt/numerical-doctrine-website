@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
       {/* Background Section (Minimal) */}
       <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
         <img
-          src="/images/homepage/hero-background.jpg"
+          src="/images/homepage/hero new background.png"
           alt="Numerology background"
           className="w-full h-full object-cover"
         />
@@ -115,9 +115,9 @@ const HeroSection: React.FC = () => {
             {/* Headline */}
             <h1
               ref={headlineRef}
-              className="font-display text-[#1A0F0F] leading-[1.2] mb-6"
+              className="font-display text-[#1A0F0F] leading-[1.1] mb-6"
               style={{
-                fontSize: 'clamp(34px, 5.7vw, 70px)',
+                fontSize: 'clamp(38px, 6.1vw, 74px)',
                 letterSpacing: '0.01em',
               }}
             >
@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
               <button
                 ref={ctaRef}
                 onClick={() => scrollToSection('contact')}
-                className="btn-brand px-12 py-5 text-sm tracking-widest-xl uppercase shadow-xl min-w-[340px]"
+                className="btn-fill-brand px-12 py-5 text-sm uppercase shadow-xl min-w-[340px]"
               >
                 Book Your Consultation
               </button>
