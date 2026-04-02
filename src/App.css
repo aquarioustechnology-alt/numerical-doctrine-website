@@ -1,0 +1,85 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior for the entire page */
+html {
+  scroll-behavior: auto;
+}
+
+/* Ensure sections stack properly */
+.section-pinned {
+  will-change: transform;
+}
+
+/* Card glass effect enhancement */
+.card-glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Button hover animation */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 106, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+/* Input focus states */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
+}
+
+/* Image loading optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Prevent text selection on decorative elements */
+.pointer-events-none {
+  user-select: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .card-glass {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  
+  .mandala-rotate {
+    animation-duration: 180s;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .mandala-rotate {
+    animation: none;
+  }
+}
