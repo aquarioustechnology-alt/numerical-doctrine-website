@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Sparkles, Shield } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
