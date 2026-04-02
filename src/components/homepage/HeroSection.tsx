@@ -86,38 +86,27 @@ const HeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned bg-espresso z-10"
+      className="relative w-screen h-[70vh] overflow-hidden bg-[#FDF7E7] z-10"
     >
-      {/* Background Image */}
-      <div ref={bgImageRef} className="absolute inset-0 w-full h-full">
+      {/* Background Section (Minimal) */}
+      <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
         <img
-          src="/hero_portrait.jpg"
-          alt="Spiritual numerology"
-          className="w-full h-full object-cover img-cinematic"
-        />
-        {/* Dark overlay gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, rgba(26,15,15,0.85) 0%, rgba(26,15,15,0.6) 50%, rgba(26,15,15,0.75) 100%)',
-          }}
+          src="/images/homepage/hero-background.jpg"
+          alt="Numerology background"
+          className="w-full h-full object-cover"
         />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 border border-gold/10 rounded-full animate-pulse opacity-30" />
-      <div className="absolute bottom-40 left-10 w-32 h-32 border border-gold/10 rounded-full opacity-20" />
-
-      {/* Content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 h-full flex flex-col justify-center px-6 lg:px-20"
-      >
-        <div className="max-w-4xl">
+      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-0">
+        {/* Left Content (60%) */}
+        <div 
+          ref={contentRef}
+          className="w-full lg:w-[60%] h-full flex flex-col justify-center px-0 pt-20 lg:pt-0"
+        >
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <Sparkles className="w-5 h-5 text-gold" />
-            <span className="font-display text-xs tracking-widest-xl text-gold uppercase">
+            <span className="font-display text-xs lg:text-sm tracking-widest-xl text-gold uppercase">
               Discover Your True Path
             </span>
           </div>
@@ -125,22 +114,20 @@ const HeroSection: React.FC = () => {
           {/* Headline */}
           <h1
             ref={headlineRef}
-            className="font-display text-ivory uppercase leading-tight mb-6"
+            className="font-display text-[#1A0F0F] uppercase leading-[1.1] mb-5"
             style={{
-              fontSize: 'clamp(32px, 6vw, 72px)',
-              letterSpacing: '0.04em',
+              fontSize: 'clamp(30px, 4.5vw, 64px)',
+              letterSpacing: '0.01em',
             }}
           >
-            Unlock the Hidden<br />
-            <span className="text-gold">Science of Numbers</span><br />
-            with Numeral Doctrrine
+            Unlock the Hidden Science of Numbers With Numeral Doctrrine
           </h1>
 
           {/* Subheadline */}
           <p
             ref={subheadlineRef}
-            className="font-body text-taupe leading-relaxed mb-8 max-w-2xl"
-            style={{ fontSize: 'clamp(16px, 1.5vw, 20px)' }}
+            className="font-body text-black leading-relaxed mb-6 max-w-2xl"
+            style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}
           >
             Transform your life, career, and business using scientifically interpreted 
             numerology insights backed by ancient wisdom.
@@ -149,47 +136,38 @@ const HeroSection: React.FC = () => {
           {/* Trust Statement */}
           <div
             ref={trustRef}
-            className="flex items-start gap-3 mb-10 p-4 rounded-lg bg-espresso/60 border border-gold/20 max-w-xl"
+            className="flex items-start gap-4 mb-8 p-4 rounded-xl bg-white/40 border border-gold/20 max-w-xl"
           >
             <Shield className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-            <p className="font-body text-sm text-taupe/90 leading-relaxed">
-              <strong className="text-ivory">Numeral Doctrrine Private Limited</strong> is a legally 
-              registered entity under the Ministry of Corporate Affairs (MCA), Government of India—ensuring 
-              trust, transparency, and professional service standards.
+            <p className="font-body text-xs lg:text-sm text-[#1A0F0F]/90 leading-relaxed">
+              <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
+              registered entity under the MCA, Government of India—guaranteeing 
+              transparency and professional global standards.
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="flex flex-wrap gap-4">
             <button
               ref={ctaRef}
               onClick={() => scrollToSection('contact')}
-              className="btn-gold"
+              className="px-12 py-5 bg-[#1A0F0F] text-white font-display text-xs lg:text-sm tracking-widest-xl uppercase hover:bg-gold hover:text-[#1A0F0F] shadow-xl rounded-full transition-all duration-300"
             >
               Book Your Consultation
             </button>
-            <button
-              onClick={() => scrollToSection('what-is-numerology')}
-              className="px-8 py-3 border border-gold/40 text-gold font-display text-sm tracking-widest-xl uppercase hover:bg-gold/10 transition-all duration-300"
-            >
-              Learn More
-            </button>
           </div>
         </div>
-      </div>
 
-      {/* Logo (visible only on hero) */}
-      <div className="absolute top-6 left-6 lg:left-12 z-20">
-        <span className="font-display text-xs lg:text-sm tracking-widest-xl text-ivory">
-          NUMERAL DOCTRRINE
-        </span>
-      </div>
-
-      {/* Tagline */}
-      <div className="absolute bottom-8 right-6 lg:right-12 z-20">
-        <span className="font-display text-xs tracking-widest-xl text-gold/60 uppercase">
-          Numbers Are Not Random. They Are Direction.
-        </span>
+        {/* Right Image (40%) */}
+        <div className="w-full lg:w-[40%] h-full relative overflow-hidden flex items-center justify-center px-0">
+          <div className="relative w-full h-[70%] lg:h-[85%] group">
+            <img 
+              src="/images/homepage/hero image.png" 
+              alt="Numerical Doctrine Hero" 
+              className="w-full h-full object-contain img-cinematic transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

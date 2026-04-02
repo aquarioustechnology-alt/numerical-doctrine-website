@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
 
 // Import sections
-import Navigation from './sections/Navigation';
-import HeroSection from './sections/HeroSection';
+import HeaderSection from './components/common/HeaderSection';
+import HeroSection from './components/homepage/HeroSection';
 import WhatIsNumerology from './sections/WhatIsNumerology';
 import HowItWorks from './sections/HowItWorks';
 import TypesOfNumerology from './sections/TypesOfNumerology';
@@ -14,7 +14,7 @@ import WhyChooseUs from './sections/WhyChooseUs';
 import Testimonials from './sections/Testimonials';
 import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
-import FooterSection from './sections/FooterSection';
+import FooterSection from './components/common/FooterSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,8 +79,8 @@ function App() {
       {/* Grain Overlay */}
       <div className="grain-overlay" />
       
-      {/* Navigation */}
-      <Navigation />
+      {/* Header */}
+      <HeaderSection />
       
       {/* Hero Section */}
       <HeroSection />
