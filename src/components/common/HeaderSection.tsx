@@ -34,10 +34,10 @@ const HeaderSection: React.FC = () => {
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 w-full z-[100] px-6 lg:px-12 py-3 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full z-[100] px-6 lg:px-12 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white shadow-md border-b border-gray-100 py-2' 
-            : 'bg-transparent py-4'
+            ? 'bg-white shadow-md border-b border-gray-100 py-2 pt-2' 
+            : 'bg-transparent pt-5'
         }`}
       >
         <div className="flex items-center justify-between max-w-[1440px] mx-auto">
@@ -47,38 +47,29 @@ const HeaderSection: React.FC = () => {
             className="flex items-center group transition-transform hover:scale-105 duration-300"
           >
             <img 
-              src={isScrolled ? "/Logo/only-icon.png" : "/Logo/main-logo.png"} 
+              src={isScrolled ? "/Logo/only-icon.png" : "/Logo/svg icon.svg"} 
               alt="Numeral Doctrine Logo" 
               className={`w-auto object-contain transition-all duration-500 ${
-                isScrolled ? 'h-10 lg:h-12' : 'h-14 lg:h-24'
+                isScrolled ? 'h-10 lg:h-12' : 'h-16 lg:h-32'
               }`}
             />
           </button>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-12">
             {navLinks.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.id)}
-                className={`font-display text-xs tracking-widest uppercase transition-colors ${
-                  isScrolled 
-                    ? 'text-gray-800 hover:text-gold font-medium' 
-                    : 'text-[#1A0F0F] hover:text-gold font-medium'
-                }`}
+                className="font-body text-[15px] font-medium text-black uppercase nav-link-hover tracking-wider"
               >
                 {item.label}
               </button>
             ))}
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`px-8 py-3.5 rounded-full font-display text-xs tracking-widest uppercase transition-all duration-300 border ${
-                  isScrolled 
-                    ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' 
-                    : 'border-[#1A0F0F]/20 text-[#1A0F0F] hover:bg-[#1A0F0F] hover:text-white'
-                }`}
+                className="btn-brand px-8 py-3.5 text-sm tracking-widest uppercase min-w-[220px]"
               >
                 Calculate your number
               </button>
