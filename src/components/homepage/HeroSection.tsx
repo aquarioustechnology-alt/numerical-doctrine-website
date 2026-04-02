@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-screen min-h-screen lg:h-[95vh] overflow-hidden bg-[#FDF7E7] z-10 pb-20"
+      className="relative w-screen min-h-screen lg:h-[85vh] overflow-hidden bg-[#FDF7E7] z-10 pb-20"
     >
       {/* Background Section (Minimal) */}
       <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
@@ -106,11 +106,11 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-12">
+      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-6">
         {/* Left Content (65%) */}
         <div 
           ref={contentRef}
-          className="w-full lg:w-[65%] h-full flex flex-col justify-center text-center lg:text-left pt-32 lg:pt-16"
+          className="w-full lg:w-[65%] h-full flex flex-col justify-center text-center lg:text-left pt-24 lg:pt-16"
         >
           <div className="max-w-3xl mx-auto lg:mx-0 mt-10 lg:mt-20">
             {/* Headline */}
