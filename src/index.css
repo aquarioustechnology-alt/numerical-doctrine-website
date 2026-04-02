@@ -235,12 +235,42 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
 }
 
-/* Glass Morphism Effect */
+/* Premium Alive Glass Morphism */
 .glass-morphism {
-  background: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(200, 172, 89, 0.2) !important;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5) !important; /* Slightly more opaque base */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(101, 123, 77, 0.1) !important; /* Reduced Border Stroke to 10% */
+  box-shadow: 
+    inset 0 0 0 1.5px rgba(200, 172, 89, 0.4), /* Inner Border Gloss (Double Opacity: 40%) */
+    0 12px 40px rgba(0, 0, 0, 0.08) !important;
+  z-index: 1;
+}
+
+.glass-morphism::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(101, 123, 77, 0.2) 20%, /* Boosted Color Presence (20%) */
+    rgba(200, 172, 89, 0.3) 50%, /* Boosted Gold Strike (30%) */
+    rgba(101, 123, 77, 0.2) 80%, /* Boosted Color Presence (20%) */
+    transparent 100%
+  );
+  z-index: -1;
+  animation: glass-flow 10s infinite linear; /* Slightly faster flow for visibility */
+}
+
+@keyframes glass-flow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(33.33%); }
 }
 
 /* Mandala Animation */

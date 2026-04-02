@@ -7,11 +7,27 @@ const HeaderSection: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const heroElement = document.getElementById('hero');
+
+    if (heroElement) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsScrolled(!entry.isIntersecting);
+        },
+        { threshold: 0 }
+      );
+
+      observer.observe(heroElement);
+      return () => observer.disconnect();
+    }
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 200);
+      setIsScrolled(window.scrollY > window.innerHeight * 0.9);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -37,14 +53,14 @@ const HeaderSection: React.FC = () => {
         className={`fixed top-0 left-0 w-full z-[100] px-6 lg:px-12 transition-all duration-500 ${
           isScrolled 
             ? 'bg-white shadow-md border-b border-gray-100' 
-            : 'bg-transparent border-b border-[#C8AC59]/30'
+            : 'bg-transparent'
         }`}
         style={{ 
           paddingTop: isScrolled ? '12px' : '10px',
           paddingBottom: isScrolled ? '12px' : '0px'
         }}
       >
-        <div className="flex items-center justify-between max-w-[1440px] mx-auto">
+        <div className={`flex items-center justify-between max-w-[1440px] mx-auto relative ${!isScrolled ? 'border-b border-[#C8AC59]/30 pb-1.5' : ''}`}>
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -78,7 +94,7 @@ const HeaderSection: React.FC = () => {
             <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-outline-brand px-6 py-3 text-[13px] min-w-[200px]"
+                className="btn-outline-brand h-14 px-8 text-[13px] min-w-[200px]"
               >
                 Calculate your number
               </button>

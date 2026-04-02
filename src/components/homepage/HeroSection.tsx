@@ -93,8 +93,9 @@ const HeroSection: React.FC = () => {
 
   return (
     <section
+      id="hero"
       ref={sectionRef}
-      className="relative w-screen h-[95vh] overflow-hidden bg-[#FDF7E7] z-10 pb-20"
+      className="relative w-screen min-h-screen lg:h-[95vh] overflow-hidden bg-[#FDF7E7] z-10 pb-20"
     >
       {/* Background Section (Minimal) */}
       <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
@@ -105,13 +106,13 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-0">
+      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-12">
         {/* Left Content (65%) */}
         <div 
           ref={contentRef}
-          className="w-full lg:w-[65%] h-full flex flex-col justify-center px-0 pt-28 lg:pt-16"
+          className="w-full lg:w-[65%] h-full flex flex-col justify-center text-center lg:text-left pt-32 lg:pt-16"
         >
-          <div className="max-w-3xl mt-10 lg:mt-20">
+          <div className="max-w-3xl mx-auto lg:mx-0 mt-10 lg:mt-20">
             {/* Headline */}
             <h1
               ref={headlineRef}
@@ -127,7 +128,7 @@ const HeroSection: React.FC = () => {
             {/* Subheadline */}
             <p
               ref={subheadlineRef}
-              className="font-body text-black leading-relaxed mb-8 max-w-xl"
+              className="font-body text-black leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
               style={{ fontSize: 'clamp(16px, 1.4vw, 20px)' }}
             >
               Transform your life, career, and business using scientifically interpreted 
@@ -137,10 +138,10 @@ const HeroSection: React.FC = () => {
             {/* Trust Statement */}
             <div
               ref={trustRef}
-              className="flex items-start gap-4 mb-10 p-6 rounded-xl glass-morphism max-w-xl"
+              className="flex items-start gap-4 mb-6 p-6 rounded-xl glass-morphism max-w-xl mx-auto lg:mx-0"
             >
               <Shield className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-              <p className="font-body text-xs lg:text-sm text-[#1A0F0F]/90 leading-relaxed">
+              <p className="font-body text-xs lg:text-sm text-[#1A0F0F]/90 leading-relaxed text-left">
                 <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
                 registered entity under the MCA, Government of India—guaranteeing 
                 transparency and professional global standards.
@@ -148,7 +149,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 lg:mb-0">
               <button
                 ref={ctaRef}
                 onClick={() => scrollToSection('contact')}
@@ -161,8 +162,8 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Right Image (35%) */}
-        <div className="w-full lg:w-[35%] h-full relative overflow-hidden flex items-center justify-center px-0">
-          <div className="relative w-full h-[80%] lg:h-[95%] group hero-rotate-img">
+        <div className="w-full lg:w-[35%] h-[45vh] lg:h-full relative overflow-hidden flex items-center justify-center px-0">
+          <div className="relative w-[85%] lg:w-full h-full lg:h-[95%] group hero-rotate-img flex items-center justify-center">
             <img 
               src="/images/homepage/hero image.png" 
               alt="Numerical Doctrine Hero" 
