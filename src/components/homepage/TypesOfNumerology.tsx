@@ -73,8 +73,8 @@ const TypesOfNumerology: React.FC = () => {
       className="relative py-[100px] overflow-hidden bg-white z-20"
     >
       <div className="relative z-10 px-6 max-w-[1440px] mx-auto">
-        {/* Centered Header Section */}
-        <div className="text-center mb-12 lg:mb-16">
+        {/* Left Aligned Header Section */}
+        <div className="text-left mb-12 lg:mb-16">
           <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-4 block">
             Systems We Use
           </span>
@@ -92,17 +92,17 @@ const TypesOfNumerology: React.FC = () => {
         {/* Premium Editorial Cards Grid */}
         <div
           ref={cardsRef}
-          className="grid md:grid-cols-2 gap-10 lg:gap-14"
+          className="grid md:grid-cols-2 gap-12 lg:gap-16"
         >
           {types.map((type, index) => (
             <motion.div
               key={index}
-              className="flex flex-col xl:flex-row items-center lg:items-start gap-6 lg:gap-10"
-              whileHover={{ y: -8 }}
+              className="flex flex-col xl:flex-row items-stretch gap-8 lg:gap-10"
+              whileHover={{ y: -6 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              {/* Image side - Modern editorial style with shorter aspect ratio */}
-              <div className="relative w-full xl:w-[45%] aspect-[4/4.2] rounded-[24px] lg:rounded-[32px] overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+              {/* Image side - Equal 50/50 Split */}
+              <div className="relative w-full xl:w-1/2 aspect-square rounded-[40px] overflow-hidden group">
                 <motion.img
                   src={type.image}
                   alt={type.title}
@@ -111,38 +111,35 @@ const TypesOfNumerology: React.FC = () => {
                   transition={{ duration: 0.8 }}
                 />
                 {/* Specific Top-Left Gradient for Number Visibility */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/20 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/10 to-transparent z-10" />
                 
                 {/* Fixed Number - Clear and Stable */}
                 <span 
-                  className="absolute top-6 left-6 font-display text-5xl lg:text-6xl text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] z-20"
+                  className="absolute top-8 left-8 font-display text-5xl lg:text-6xl text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] z-20"
                 >
                   {type.number}
                 </span>
-                
-                {/* Hover Reveal Overlay */}
-                <div className="absolute inset-0 bg-brand-green/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-15" />
               </div>
 
-              {/* Content side */}
-              <div className="w-full xl:w-[55%] pt-2 flex flex-col h-full">
-                <div className="flex-grow">
-                  <h3 className="font-display text-2xl lg:text-3xl text-[#1A0F0F] tracking-wide mb-4 capitalize">
+              {/* Content side - Equal 50/50 Split */}
+              <div className="w-full xl:w-1/2 flex flex-col justify-between py-2">
+                <div>
+                  <h3 className="font-display text-3xl lg:text-[34px] text-[#1A0F0F] leading-tight mb-5 capitalize">
                     {type.title}
                   </h3>
                   
-                  <p className="font-body text-[#1A0F0F]/60 text-base lg:text-lg leading-relaxed mb-8 border-l-2 border-brand-green/20 pl-5">
+                  <p className="font-body text-[#1A0F0F]/60 text-[16px] lg:text-[17px] leading-relaxed mb-8 border-l border-gray-200 pl-6">
                     {type.description}
                   </p>
                 </div>
                 
                 {/* HIGH VISIBILITY "Why it matters" BOX - MATCHING SCREENSHOT */}
-                <div className="mt-auto relative bg-[#FFFFFF] rounded-2xl border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.04)] overflow-hidden">
+                <div className="relative bg-[#FFFFFF] rounded-[24px] border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
                   {/* Thick Gold Vertical Bar */}
                   <div className="absolute top-0 left-0 w-[5px] h-full bg-brand-gold" />
                   
-                  <div className="p-6 pl-8">
-                    <span className="block font-display text-[11px] text-brand-gold tracking-[0.25em] uppercase font-bold mb-3">
+                  <div className="p-7 pl-9">
+                    <span className="block font-display text-[12px] text-brand-gold tracking-[0.25em] uppercase font-bold mb-3">
                       Why it matters
                     </span>
                     <p className="font-body text-[#1A0F0F] text-[16px] lg:text-[17px] leading-relaxed font-bold tracking-tight">
