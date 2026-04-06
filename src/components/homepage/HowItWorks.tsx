@@ -39,99 +39,74 @@ const HowItWorks: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Entire section reveal (bottom to top, scrub driven)
+      // Entire section reveal
       gsap.fromTo(sectionRef.current,
-        { y: 150 },
+        { y: 100 },
         { 
           y: 0, 
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top bottom",
-            end: "top 30%",
+            end: "top 20%",
             scrub: 0.5,
           }
         }
       );
 
-      // Animate dotted line appearing first
+      // Animate dotted line
       const dottedLine = lineRef.current?.querySelector('.dotted-line');
       const iconEls = lineRef.current?.querySelectorAll('.line-icon');
       
       if (dottedLine) {
-        gsap.fromTo(dottedLine,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            duration: 1.2,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: lineRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            }
-          }
-        );
+        gsap.fromTo(dottedLine, { scaleX: 0 }, {
+          scaleX: 1, duration: 1.2, ease: 'power2.out',
+          scrollTrigger: { trigger: lineRef.current, start: 'top 80%', toggleActions: 'play none none reverse' }
+        });
       }
 
       if (iconEls) {
-        gsap.fromTo(iconEls,
-          { scale: 0, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.4,
-            stagger: 0.12,
-            ease: 'back.out(2)',
-            scrollTrigger: {
-              trigger: lineRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse',
-            }
-          }
-        );
+        gsap.fromTo(iconEls, { scale: 0, opacity: 0 }, {
+          scale: 1, opacity: 1, duration: 0.4, stagger: 0.12, ease: 'back.out(2)',
+          scrollTrigger: { trigger: lineRef.current, start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
       }
 
-      // Animate steps entrance
+      // Animate steps
       const stepElements = stepsRef.current?.querySelectorAll('.step-item');
       if (stepElements) {
-        gsap.fromTo(
-          stepElements,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: stepsRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+        gsap.fromTo(stepElements, { opacity: 0, y: 30 }, {
+          opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+          scrollTrigger: { trigger: stepsRef.current, start: 'top 75%', toggleActions: 'play none none reverse' }
+        });
       }
 
-      // Continuous looping highlight animation on step numbers
+      // SYNCED HIGHLIGHT LOOP: Numbers & Icons
       const stepNumbers = stepsRef.current?.querySelectorAll('.step-number');
-      if (stepNumbers && stepNumbers.length > 0) {
-        const loopTl = gsap.timeline({ repeat: -1, delay: 1.5 });
+      const lineIcons = lineRef.current?.querySelectorAll('.line-icon');
+      
+      if (stepNumbers && stepNumbers.length > 0 && lineIcons && lineIcons.length > 0) {
+        const loopTl = gsap.timeline({ repeat: -1, delay: 1 });
         
         stepNumbers.forEach((num, i) => {
-          loopTl
-            .to(num, { 
-              color: 'rgba(255,255,255,0.85)', 
-              scale: 1.05,
-              duration: 0.6, 
-              ease: 'power2.out' 
-            }, i * 1.4)
-            .to(num, { 
-              color: 'rgba(255,255,255,0.15)', 
-              scale: 1,
-              duration: 0.8, 
-              ease: 'power2.inOut' 
-            }, i * 1.4 + 0.8);
+          const icon = lineIcons[i];
+          
+          loopTl.to([num, icon], { 
+            color: (_: any, target: any) => target.classList.contains('line-icon') ? '#657B4D' : 'rgba(255,255,255,1)',
+            backgroundColor: (_: any, target: any) => target.classList.contains('line-icon') ? '#ffffff' : 'transparent',
+            borderColor: (_: any, target: any) => target.classList.contains('line-icon') ? '#ffffff' : 'transparent',
+            scale: (_: any, target: any) => target.classList.contains('line-icon') ? 1.15 : 1.1,
+            duration: 0.6, 
+            ease: 'power2.out' 
+          }, i * 1.5)
+          .to([num, icon], { 
+            color: (_: any, target: any) => target.classList.contains('line-icon') ? 'rgba(200, 172, 89, 0.6)' : 'rgba(255,255,255,0.15)',
+            backgroundColor: 'transparent',
+            borderColor: (_: any, target: any) => target.classList.contains('line-icon') ? 'rgba(200, 172, 89, 0.2)' : 'transparent',
+            scale: 1,
+            duration: 0.8, 
+            ease: 'power2.inOut' 
+          }, i * 1.5 + 0.8);
         });
       }
     }, sectionRef);
@@ -150,42 +125,30 @@ const HowItWorks: React.FC = () => {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative bg-[#657B4D] py-20 lg:pb-52 lg:pt-36 overflow-hidden z-0"
+      className="relative bg-[#657B4D] py-20 overflow-hidden z-10"
       style={{ borderRadius: '50% 50% 0 0 / 80px 80px 0 0' }}
     >
-
       <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 lg:mb-14">
-          <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-3 block">
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="font-display text-brand-gold text-xs tracking-widest-2xl uppercase mb-3 block">
             Our Process
           </span>
-          <h2
-            className="font-display text-white leading-tight mb-4"
-            style={{
-              fontSize: 'clamp(28px, 4vw, 48px)',
-              letterSpacing: '0.04em',
-            }}
-          >
-            How Numerology <span className="text-brand-gold">Works</span>
+          <h2 className="font-display text-white text-3xl lg:text-5xl leading-tight mb-4 tracking-wide">
+            How Numerology <span className="text-brand-gold font-normal">Works</span>
           </h2>
-          <p className="font-body text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="font-body text-white/70 max-w-xl mx-auto text-base lg:text-lg">
             This process ensures that your life is aligned with positive numerical energy.
           </p>
         </div>
 
-        {/* Decorative Dotted Line with Icons */}
-        <div ref={lineRef} className="relative mb-8 lg:mb-12">
-          {/* Dotted horizontal line */}
-          <div 
-            className="dotted-line absolute top-1/2 left-0 w-full border-t border-dashed border-brand-gold/30 origin-left" 
-            style={{ transform: 'scaleX(0)' }}
-          />
-          {/* Icons on the line */}
+        {/* Decorative Dotted Line */}
+        <div ref={lineRef} className="relative mb-12 lg:mb-16">
+          <div className="dotted-line absolute top-1/2 left-0 w-full border-t border-dashed border-brand-gold/20 origin-left" />
           <div className="relative grid grid-cols-5">
             {['☽', '✦', '☼', '◈', '✧'].map((icon, i) => (
               <div key={i} className="flex justify-center">
-                <span className="line-icon w-10 h-10 rounded-full bg-[#657B4D] border border-brand-gold/20 flex items-center justify-center text-brand-gold/70 text-lg">
+                <span className="line-icon w-11 h-11 rounded-full bg-transparent border border-brand-gold/15 flex items-center justify-center text-brand-gold/60 text-xl">
                   {icon}
                 </span>
               </div>
@@ -193,43 +156,26 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* Steps */}
-        <div ref={stepsRef} className="relative">
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="step-item text-center group"
-              >
-                {/* Large Step Number */}
-                <span 
-                  className="step-number font-display block mb-4 leading-none"
-                  style={{ 
-                    fontSize: 'clamp(60px, 6vw, 90px)',
-                    color: 'rgba(255,255,255,0.15)',
-                  }}
-                >
-                  {step.number}
-                </span>
-
-                {/* Title */}
-                <h3 className="font-display text-white text-lg lg:text-xl mb-3 leading-snug">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="font-body text-white/60 text-sm leading-relaxed max-w-[240px] mx-auto">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
+        {/* Steps Grid */}
+        <div ref={stepsRef} className="grid grid-cols-2 lg:grid-cols-5 gap-8">
+          {steps.map((step, index) => (
+            <div key={index} className="step-item text-center">
+              <span className="step-number font-display block mb-4 text-white/10 text-6xl lg:text-8xl leading-none">
+                {step.number}
+              </span>
+              <h3 className="font-display text-white text-lg lg:text-xl mb-3 tracking-wide">{step.title}</h3>
+              <p className="font-body text-white/50 text-[16px] leading-relaxed mx-auto max-w-[180px]">
+                {step.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-10 lg:mt-14 text-center">
+        {/* CTA Button */}
+        <div className="mt-16 lg:mt-20 text-center">
           <button
             onClick={() => scrollToSection('contact')}
-            className="btn-outline-white px-10 py-5 text-[15px] uppercase min-w-[300px]"
+            className="btn-outline-white px-12 py-5 text-[14px] uppercase tracking-widest font-semibold"
           >
             Book a Consultation with Us
           </button>
