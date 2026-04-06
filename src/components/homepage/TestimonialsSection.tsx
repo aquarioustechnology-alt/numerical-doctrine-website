@@ -46,6 +46,12 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section id="testimonials" className="relative pt-24 pb-16 lg:pt-[100px] lg:pb-[80px] bg-white overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat w-full h-full"
+        style={{ backgroundImage: 'url("/images/homepage/types of numerlogy BG.png")' }}
+      />
+      
       <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
