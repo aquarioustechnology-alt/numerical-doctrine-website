@@ -70,7 +70,7 @@ const TypesOfNumerology: React.FC = () => {
     <section
       ref={sectionRef}
       id="types-of-numerology"
-      className="relative py-[100px] overflow-hidden bg-white z-20"
+      className="relative pt-[100px] pb-[40px] overflow-hidden bg-white z-20"
     >
       <div className="relative z-10 px-6 max-w-[1440px] mx-auto">
         {/* Left Aligned Header Section */}

@@ -101,12 +101,6 @@ function App() {
       {/* What is Numerology */}
       <WhatIsNumerology />
       
-      {/* Services */}
-      <ServicesSection />
-      
-      {/* Why Choose Us */}
-      <WhyChooseUs />
-      
       {/* Testimonials */}
       <Testimonials />
       
