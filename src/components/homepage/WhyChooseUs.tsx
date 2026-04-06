@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ShieldCheck, UserCheck, FileText, Fingerprint, Sparkles, Star, Moon, Compass } from 'lucide-react';
+import { ShieldCheck, Fingerprint, Star, Moon, Compass, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,33 +9,6 @@ const WhyChooseUs: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-
-  const features = [
-    {
-      icon: ShieldCheck,
-      astrologyIcon: StarsIcon,
-      title: 'Registered under MCA',
-      description: '(Legal & Trusted)',
-    },
-    {
-      icon: UserCheck,
-      astrologyIcon: MoonIcon,
-      title: 'Professional Consultation',
-      description: 'Systematic Process',
-    },
-    {
-      icon: FileText,
-      astrologyIcon: SparkleIcon,
-      title: 'Structured Reports',
-      description: '& Documentation',
-    },
-    {
-      icon: Fingerprint,
-      astrologyIcon: CompassIcon,
-      title: 'Customized Solutions',
-      description: '(Not Generic Advice)',
-    },
-  ];
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -156,11 +129,5 @@ const WhyChooseUs: React.FC = () => {
     </section>
   );
 };
-
-// Simple helper icons
-const StarsIcon = (props: any) => <Star {...props} />;
-const MoonIcon = (props: any) => <Moon {...props} />;
-const SparkleIcon = (props: any) => <Sparkles {...props} />;
-const CompassIcon = (props: any) => <Compass {...props} />;
 
 export default WhyChooseUs;
