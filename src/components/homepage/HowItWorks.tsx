@@ -41,15 +41,15 @@ const HowItWorks: React.FC = () => {
     const ctx = gsap.context(() => {
       // Entire section reveal
       gsap.fromTo(sectionRef.current,
-        { y: 100 },
+        { opacity: 0, y: 50 },
         { 
+          opacity: 1,
           y: 0, 
-          ease: "none",
+          duration: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top bottom",
-            end: "top 20%",
-            scrub: 0.5,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
           }
         }
       );
@@ -60,14 +60,14 @@ const HowItWorks: React.FC = () => {
       
       if (dottedLine) {
         gsap.fromTo(dottedLine, { scaleX: 0 }, {
-          scaleX: 1, duration: 1.2, ease: 'power2.out',
+          scaleX: 1, duration: 1.5, ease: 'power2.out',
           scrollTrigger: { trigger: lineRef.current, start: 'top 80%', toggleActions: 'play none none reverse' }
         });
       }
 
       if (iconEls) {
         gsap.fromTo(iconEls, { scale: 0, opacity: 0 }, {
-          scale: 1, opacity: 1, duration: 0.4, stagger: 0.12, ease: 'back.out(2)',
+          scale: 1, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'back.out(1.7)',
           scrollTrigger: { trigger: lineRef.current, start: 'top 75%', toggleActions: 'play none none reverse' }
         });
       }
@@ -76,37 +76,52 @@ const HowItWorks: React.FC = () => {
       const stepElements = stepsRef.current?.querySelectorAll('.step-item');
       if (stepElements) {
         gsap.fromTo(stepElements, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power2.out',
           scrollTrigger: { trigger: stepsRef.current, start: 'top 75%', toggleActions: 'play none none reverse' }
         });
       }
 
-      // SYNCED HIGHLIGHT LOOP: Numbers & Icons
+      // SYNCED HIGHLIGHT LOOP: Numbers & Icons (FIXED & BOLDER)
       const stepNumbers = stepsRef.current?.querySelectorAll('.step-number');
       const lineIcons = lineRef.current?.querySelectorAll('.line-icon');
       
       if (stepNumbers && stepNumbers.length > 0 && lineIcons && lineIcons.length > 0) {
-        const loopTl = gsap.timeline({ repeat: -1, delay: 1 });
+        const loopTl = gsap.timeline({ repeat: -1 });
         
         stepNumbers.forEach((num, i) => {
-          const icon = lineIcons[i];
+          const iconContainer = lineIcons[i];
           
-          loopTl.to([num, icon], { 
-            color: (_: any, target: any) => target.classList.contains('line-icon') ? '#657B4D' : 'rgba(255,255,255,1)',
-            backgroundColor: (_: any, target: any) => target.classList.contains('line-icon') ? '#ffffff' : 'transparent',
-            borderColor: (_: any, target: any) => target.classList.contains('line-icon') ? '#ffffff' : 'transparent',
-            scale: (_: any, target: any) => target.classList.contains('line-icon') ? 1.15 : 1.1,
-            duration: 0.6, 
+          // Phase 1: Activate highlight
+          loopTl.to(num, { 
+            color: 'rgba(255,255,255,1)', 
+            duration: 0.4, 
             ease: 'power2.out' 
-          }, i * 1.5)
-          .to([num, icon], { 
-            color: (_: any, target: any) => target.classList.contains('line-icon') ? 'rgba(200, 172, 89, 0.6)' : 'rgba(255,255,255,0.15)',
-            backgroundColor: 'transparent',
-            borderColor: (_: any, target: any) => target.classList.contains('line-icon') ? 'rgba(200, 172, 89, 0.2)' : 'transparent',
-            scale: 1,
-            duration: 0.8, 
+          }, i * 1.8)
+          .to(iconContainer, { 
+            backgroundColor: '#ffffff',
+            color: '#657B4D',
+            borderColor: '#ffffff',
+            scale: 1.2,
+            duration: 0.4, 
+            ease: 'power2.out' 
+          }, i * 1.8);
+          
+          // Phase 2: Short Pause of Highlight
+          
+          // Phase 3: Deactivate highlight
+          loopTl.to(num, { 
+            color: 'rgba(255,255,255,0.15)', 
+            duration: 0.6, 
             ease: 'power2.inOut' 
-          }, i * 1.5 + 0.8);
+          }, i * 1.8 + 1.2)
+          .to(iconContainer, { 
+            backgroundColor: 'transparent',
+            color: 'rgba(200, 172, 89, 0.6)',
+            borderColor: 'rgba(200, 172, 89, 0.2)',
+            scale: 1,
+            duration: 0.6, 
+            ease: 'power2.inOut' 
+          }, i * 1.8 + 1.2);
         });
       }
     }, sectionRef);
@@ -137,7 +152,7 @@ const HowItWorks: React.FC = () => {
           <h2 className="font-display text-white text-3xl lg:text-5xl leading-tight mb-4 tracking-wide">
             How Numerology <span className="text-brand-gold font-normal">Works</span>
           </h2>
-          <p className="font-body text-white/70 max-w-xl mx-auto text-base lg:text-lg">
+          <p className="font-body text-white/70 max-w-xl mx-auto text-[16px] lg:text-[18px]">
             This process ensures that your life is aligned with positive numerical energy.
           </p>
         </div>
@@ -148,7 +163,7 @@ const HowItWorks: React.FC = () => {
           <div className="relative grid grid-cols-5">
             {['☽', '✦', '☼', '◈', '✧'].map((icon, i) => (
               <div key={i} className="flex justify-center">
-                <span className="line-icon w-11 h-11 rounded-full bg-transparent border border-brand-gold/15 flex items-center justify-center text-brand-gold/60 text-xl">
+                <span className="line-icon w-12 h-12 rounded-full border border-brand-gold/15 flex items-center justify-center text-brand-gold/60 text-xl transition-none">
                   {icon}
                 </span>
               </div>
@@ -157,14 +172,14 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* Steps Grid */}
-        <div ref={stepsRef} className="grid grid-cols-2 lg:grid-cols-5 gap-8">
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="step-item text-center">
               <span className="step-number font-display block mb-4 text-white/10 text-6xl lg:text-8xl leading-none">
                 {step.number}
               </span>
-              <h3 className="font-display text-white text-lg lg:text-xl mb-3 tracking-wide">{step.title}</h3>
-              <p className="font-body text-white/50 text-[16px] leading-relaxed mx-auto max-w-[180px]">
+              <h3 className="font-display text-white text-[20px] lg:text-[22px] mb-4 tracking-wide font-medium">{step.title}</h3>
+              <p className="font-body text-white/60 text-[16px] leading-relaxed mx-auto max-w-[200px]">
                 {step.description}
               </p>
             </div>
@@ -172,10 +187,10 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-16 lg:mt-20 text-center">
+        <div className="mt-20 lg:mt-24 text-center">
           <button
             onClick={() => scrollToSection('contact')}
-            className="btn-outline-white px-12 py-5 text-[14px] uppercase tracking-widest font-semibold"
+            className="btn-outline-white px-12 py-5 text-[15px] uppercase tracking-widest font-semibold"
           >
             Book a Consultation with Us
           </button>
