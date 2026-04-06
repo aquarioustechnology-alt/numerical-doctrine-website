@@ -49,27 +49,65 @@ const FooterSection: React.FC = () => {
 
   return (
     <>
-      <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-12 lg:pt-16">
+      <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-10 lg:pt-12">
+        {/* Decorative Mystical Numerology SVG - Top Right */}
+        <div className="absolute top-0 right-0 w-[450px] h-[450px] opacity-[0.16] pointer-events-none translate-x-1/4 -translate-y-1/4 z-0 animate-[spin_80s_linear_infinite]">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <circle cx="100" cy="100" r="98" stroke="#C8AC59" strokeWidth="0.5" />
+            <circle cx="100" cy="100" r="92" stroke="#C8AC59" strokeWidth="0.2" strokeDasharray="1 2" />
+            <circle cx="100" cy="100" r="85" stroke="#FFFFFF" strokeWidth="0.5" opacity="0.4" />
+            <circle cx="100" cy="100" r="60" stroke="#C8AC59" strokeWidth="0.3" />
+            <circle cx="100" cy="100" r="40" stroke="#FFFFFF" strokeWidth="0.3" opacity="0.4" />
+            <circle cx="100" cy="100" r="20" stroke="#C8AC59" strokeWidth="0.2" />
+            <path d="M100 15 L182.27 157.5 L17.73 157.5 Z" stroke="#C8AC59" strokeWidth="0.4" />
+            <path d="M100 185 L17.73 42.5 L182.27 42.5 Z" stroke="#FFFFFF" strokeWidth="0.4" opacity="0.4" />
+            <path d="M100 40 L160 140 L40 140 Z" stroke="#C8AC59" strokeWidth="0.3" opacity="0.6" />
+            <path d="M100 160 L40 60 L160 60 Z" stroke="#FFFFFF" strokeWidth="0.3" opacity="0.4" />
+            <line x1="100" y1="0" x2="100" y2="200" stroke="#C8AC59" strokeWidth="0.1" opacity="0.4" />
+            <line x1="0" y1="100" x2="200" y2="100" stroke="#C8AC59" strokeWidth="0.1" opacity="0.4" />
+            <g className="font-display font-medium" fill="#C8AC59" style={{ fontSize: '12px' }}>
+              <text x="50" y="35" textAnchor="middle">9</text>
+              <text x="145" y="35" textAnchor="middle">1</text>
+              <text x="165" y="105" textAnchor="middle">7</text>
+              <text x="145" y="175" textAnchor="middle">7</text>
+              <text x="115" y="195" textAnchor="middle">5</text>
+              <text x="60" y="175" textAnchor="middle">4</text>
+              <text x="35" y="105" textAnchor="middle">4</text>
+              <text x="35" y="70" textAnchor="middle">8</text>
+            </g>
+            <g className="font-display font-medium" fill="#FFFFFF" style={{ fontSize: '8px', opacity: 0.7 }}>
+              <text x="100" y="104" textAnchor="middle">0</text>
+              <text x="100" y="135" textAnchor="middle">6</text>
+              <text x="135" y="115" textAnchor="middle">5</text>
+              <text x="125" y="145" textAnchor="middle">5</text>
+              <text x="65" y="115" textAnchor="middle">5</text>
+              <text x="80" y="115" textAnchor="middle">8</text>
+              <text x="100" y="65" textAnchor="middle">9</text>
+              <text x="135" y="60" textAnchor="middle">1</text>
+            </g>
+          </svg>
+        </div>
+
         <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
           
           {/* Prominent CTA Section */}
-          <div className="footer-reveal text-center pb-12 lg:pb-16 border-b border-white/10">
-            <h2 className="font-display text-white leading-tight mb-6" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+          <div className="footer-reveal text-center pb-8 lg:pb-10 border-b border-white/10">
+            <h2 className="font-display text-white leading-tight mb-2" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
               "Your life is already influenced by numbers"<br/>
-              <span className="text-brand-gold font-body font-normal text-xl lg:text-[28px] italic block mt-6 opacity-90">
+              <span className="text-brand-gold font-body font-normal text-xl lg:text-[28px] italic block mt-2 opacity-90">
                 Now it’s time to control and align them for success.
               </span>
             </h2>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="btn-fill-brand px-8 lg:px-12 py-5 lg:py-6 text-[13px] lg:text-[15px] uppercase tracking-widest-xl shadow-2xl shadow-brand-gold/10 mt-4 rounded-full"
+              className="btn-fill-brand px-8 lg:px-12 py-5 lg:py-6 text-[13px] lg:text-[15px] uppercase tracking-widest-xl shadow-2xl shadow-brand-gold/10 rounded-full inline-block mt-6"
             >
               Book your consultation with Numeral Doctrrine Private Limited today.
             </button>
           </div>
 
           {/* Core Footer Grid */}
-          <div className="py-10 lg:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
+          <div className="py-8 lg:py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
             
             {/* Brand Identifier (Span 4) */}
             <div className="footer-reveal lg:col-span-4 pr-0 lg:pr-12">
@@ -82,7 +120,7 @@ const FooterSection: React.FC = () => {
               {/* Social Icons */}
               <div className="flex items-center gap-4">
                 {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                  <button key={i} className="w-[42px] h-[42px] rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-[#1A0F0F] text-white/60 transition-all duration-300 transform hover:-translate-y-1">
+                  <button key={i} className="w-[42px] h-[42px] rounded-full bg-[#4A5C37] flex items-center justify-center hover:bg-brand-gold hover:border-transparent hover:text-[#1A0F0F] text-white transition-all duration-300 transform hover:-translate-y-1">
                     <Icon className="w-4 h-4" />
                   </button>
                 ))}
@@ -118,20 +156,20 @@ const FooterSection: React.FC = () => {
               <h4 className="font-display text-lg text-white uppercase tracking-widest mb-7 border-b border-brand-gold/20 pb-3 inline-block">Contact</h4>
               <ul className="space-y-5">
                 <li className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
-                    <MapPin className="w-4 h-4 text-brand-gold" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
+                    <MapPin className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
                   </div>
-                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
+                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5 group-hover:text-white transition-colors">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
                 </li>
                 <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
-                    <Phone className="w-4 h-4 text-brand-gold" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
+                    <Phone className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
                   </div>
                   <a href="tel:+919701951666" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">+91 9701951666</a>
                 </li>
                 <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
-                    <Mail className="w-4 h-4 text-brand-gold" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
+                    <Mail className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
                   </div>
                   <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">support@numeraldoctrrine.com</a>
                 </li>
@@ -146,8 +184,9 @@ const FooterSection: React.FC = () => {
                   <li key={link.id}>
                     <button
                       onClick={() => setShowModal(link.id as 'terms' | 'privacy' | 'disclaimer')}
-                      className="font-body text-white/60 hover:text-white transition-colors text-[15px] flex items-center group"
+                      className="font-body text-white/60 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
                     >
+                      <span className="w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
                       {link.label}
                     </button>
                   </li>
