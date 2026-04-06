@@ -112,9 +112,9 @@ const HeroSection: React.FC = () => {
 
               {/* The Rectangular Div (Glass Morphism) containing the content */}
               <div className="flex-1 p-5 pl-8 lg:pl-16 rounded-2xl glass-morphism border border-white/20">
-                <p className="font-body text-xs lg:text-[13px] text-[#1A0F0F]/90 leading-relaxed text-left">
+                <p className="font-body text-[14px] lg:text-[15px] text-[#1A0F0F]/90 leading-relaxed text-left">
                   <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
-                  registered entity under the MCA, Government of India—guaranteeing 
+                  registered entity under the MCA, Government of India, guaranteeing 
                   transparency and professional global standards.
                 </p>
               </div>

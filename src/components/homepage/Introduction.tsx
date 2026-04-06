@@ -35,11 +35,21 @@ const Introduction: React.FC = () => {
       ref={sectionRef} 
       className="bg-white pb-24 lg:pb-32 relative overflow-hidden pt-0"
     >
+      {/* Subtle Background Image */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.03] grayscale bg-fixed"
+        style={{ 
+          backgroundImage: "url('/images/homepage/intro-subtle-bg.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+
       <div className="max-w-[1440px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
         <span 
           ref={badgeRef}
-          className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-6 block"
+          className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-3 block"
         >
           The Foundation
         </span>
@@ -57,7 +67,7 @@ const Introduction: React.FC = () => {
         </h2>
 
         {/* Content Wrapper */}
-        <div className="max-w-4xl space-y-4">
+        <div className="w-full space-y-4 mb-10 lg:mb-12">
           <p 
             ref={text1Ref}
             className="font-body text-[#1A0F0F]/90 text-[17px] leading-[1.6]"
@@ -76,6 +86,47 @@ const Introduction: React.FC = () => {
             not random—they carry frequencies that can either support your growth 
             or create obstacles.
           </p>
+
+          <p 
+            className="font-body text-[#1A0F0F]/90 text-[20px] italic font-semibold leading-[1.6] pt-4"
+          >
+            At <span className="text-brand-green italic font-semibold">Numeral Doctrrine Private Limited</span>, we analyze these numerical patterns in a structured and scientific manner to help you:
+          </p>
+        </div>
+
+        {/* Feature Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 w-full">
+          {[
+            {
+              img: "/images/homepage/illustration 1.jpg",
+              text: "Understand your life path and purpose"
+            },
+            {
+              img: "/images/homepage/illustration 2.jpg",
+              text: "Identify hidden strengths and weaknesses"
+            },
+            {
+              img: "/images/homepage/illustration 3.jpg",
+              text: "Predict favorable and challenging periods"
+            },
+            {
+              img: "/images/homepage/illustration 4.jpg",
+              text: "Align your actions with success-oriented numbers"
+            }
+          ].map((item, idx) => (
+            <div key={idx} className="flex flex-col items-center group">
+              <div className="relative w-28 h-28 lg:w-36 lg:h-36 mb-6 transition-all duration-500">
+                <img 
+                  src={item.img} 
+                  alt={item.text}
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <p className="font-display text-[#657B4D] text-[19px] lg:text-[21px] font-medium leading-tight px-2">
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
       
