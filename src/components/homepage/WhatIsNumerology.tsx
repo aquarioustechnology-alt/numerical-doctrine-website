@@ -133,10 +133,10 @@ const WhatIsNumerology: React.FC = () => {
                 thoughts, decisions, opportunities, and outcomes.
               </p>
               <p>
-                Your <strong className="text-ivory">date of birth</strong>,{' '}
-                <strong className="text-ivory">name</strong>,{' '}
-                <strong className="text-ivory">mobile number</strong>, and even your{' '}
-                <strong className="text-ivory">business name</strong> are not random—they 
+                Your <strong className="text-ivory font-semibold">date of birth</strong>,{' '}
+                <strong className="text-ivory font-semibold">name</strong>,{' '}
+                <strong className="text-ivory font-semibold">mobile number</strong>, and even your{' '}
+                <strong className="text-ivory font-semibold">business name</strong> are not random—they 
                 carry frequencies that can either support your growth or create obstacles.
               </p>
             </div>
@@ -145,7 +145,7 @@ const WhatIsNumerology: React.FC = () => {
               In simple words: Numerology helps you make the right decisions at the right time.
             </p>
 
-            <p className="font-body text-sm text-taupe/70">
+            <p className="font-body text-[15px] text-taupe/70">
               At <strong className="text-gold">Numeral Doctrrine Private Limited</strong>, we 
               analyze these numerical patterns in a structured and scientific manner.
             </p>
@@ -153,7 +153,7 @@ const WhatIsNumerology: React.FC = () => {
 
           {/* Right Image */}
           <div ref={imageRef} className="relative">
-            <div className="relative rounded-lg overflow-hidden shadow-card">
+            <div className="relative rounded-lg overflow-hidden shadow-card animate-float">
               <img
                 src="/numbers_cosmic.jpg"
                 alt="Mystical numbers"
@@ -162,7 +162,7 @@ const WhatIsNumerology: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 to-transparent" />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-maroon border border-gold/30 p-4 rounded-lg">
+            <div className="absolute -bottom-6 -left-6 bg-maroon border border-gold/30 p-4 rounded-lg shadow-xl translate-y-2">
               <span className="font-display text-3xl text-gold">9</span>
               <span className="font-body text-xs text-taupe block">Core Numbers</span>
             </div>

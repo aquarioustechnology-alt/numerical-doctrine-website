@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 const HowItWorks: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
 
   const steps = [
     {
@@ -45,22 +44,6 @@ const HowItWorks: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate the connecting line
-      gsap.fromTo(
-        lineRef.current,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.5,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 60%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-
       // Animate steps
       const stepElements = stepsRef.current?.querySelectorAll('.step-item');
       if (stepElements) {
@@ -90,63 +73,64 @@ const HowItWorks: React.FC = () => {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative bg-maroon py-24 lg:py-32 overflow-hidden"
+      className="relative bg-[#657B4D] py-24 lg:pb-32 lg:pt-36 overflow-hidden"
     >
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 border border-gold rounded-full" />
-        <div className="absolute bottom-20 right-20 w-60 h-60 border border-gold rounded-full" />
+      {/* Oval Shaped Top Transition */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg 
+          viewBox="0 0 1440 120" 
+          fill="none" 
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" 
+          className="relative block h-16 w-full lg:h-32 fill-white"
+        >
+          <path d="M0 0C300 120 1140 120 1440 0V0H0V0Z" />
+        </svg>
       </div>
 
-      <div className="relative z-10 px-6 lg:px-12 max-w-7xl mx-auto">
+      <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <span className="font-display text-xs tracking-widest-xl text-gold uppercase mb-4 block">
+          <span className="font-display text-xs tracking-widest-xl text-brand-gold uppercase mb-4 block">
             Our Process
           </span>
           <h2
-            className="font-display text-ivory uppercase leading-tight mb-4"
+            className="font-display text-white leading-tight mb-6"
             style={{
               fontSize: 'clamp(28px, 4vw, 48px)',
               letterSpacing: '0.04em',
             }}
           >
-            How Numerology <span className="text-gold">Works</span>
+            How Numerology <span className="text-brand-gold">Works</span>
           </h2>
-          <p className="font-body text-taupe max-w-2xl mx-auto">
+          <p className="font-body text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">
             Our structured 5-step process ensures that your life is aligned with positive numerical energy.
           </p>
         </div>
 
         {/* Steps */}
         <div ref={stepsRef} className="relative">
-          {/* Connecting line (desktop only) */}
-          <div
-            ref={lineRef}
-            className="hidden lg:block absolute top-24 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent origin-left"
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="step-item relative text-center lg:text-left"
+                className="step-item relative text-center lg:text-left group"
               >
                 {/* Step Number & Icon */}
-                <div className="relative inline-flex flex-col items-center lg:items-start mb-4">
-                  <div className="w-16 h-16 rounded-full bg-espresso border-2 border-gold/40 flex items-center justify-center mb-3 relative z-10">
-                    <step.icon className="w-6 h-6 text-gold" />
+                <div className="relative inline-flex flex-col items-center lg:items-start mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 relative z-10 transition-all duration-500 group-hover:bg-brand-gold/10 group-hover:border-brand-gold/30 group-hover:scale-105">
+                    <step.icon className="w-8 h-8 text-brand-gold" />
                   </div>
-                  <span className="font-display text-4xl text-gold/20 absolute -top-2 -right-8">
+                  <span className="font-display text-5xl text-white/5 absolute -top-4 -right-12 select-none group-hover:text-white/10 transition-colors duration-500">
                     {step.number}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-lg text-ivory uppercase tracking-wider mb-2">
+                <h3 className="font-display text-base text-white uppercase tracking-wider mb-4">
                   {step.title}
                 </h3>
-                <p className="font-body text-taupe text-sm leading-relaxed">
+                <p className="font-body text-white/60 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -155,11 +139,11 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* Bottom note */}
-        <div className="mt-16 text-center">
-          <p className="font-body text-ivory/80 italic inline-flex items-center gap-2">
-            <span className="w-8 h-px bg-gold/40" />
+        <div className="mt-20 text-center">
+          <p className="font-body text-white/50 italic inline-flex items-center gap-4 text-sm tracking-wide">
+            <span className="w-12 h-px bg-brand-gold/20" />
             This process ensures that your life is aligned with positive numerical energy
-            <span className="w-8 h-px bg-gold/40" />
+            <span className="w-12 h-px bg-brand-gold/20" />
           </p>
         </div>
       </div>
