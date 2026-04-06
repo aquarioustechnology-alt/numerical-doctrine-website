@@ -123,7 +123,7 @@ const FooterSection: React.FC = () => {
             {/* Brand Identifier (Span 4) */}
             <div className="footer-reveal lg:col-span-4 pr-0 lg:pr-12">
               <div className="mb-6">
-                <img src="/Logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[150px] lg:w-[180px] object-contain" />
+                <img src="/Logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[80px] lg:w-[100px] object-contain" />
               </div>
               <p className="font-body text-white/70 text-[14px] leading-relaxed mb-6">
                 Decode Your Numbers. Design Your Destiny. A professionally managed numerology consultancy registered under the Ministry of Corporate Affairs, Government of India.
@@ -152,7 +152,7 @@ const FooterSection: React.FC = () => {
                   <li key={link.id}>
                     <button 
                       onClick={() => scrollToSection(link.id)} 
-                      className="font-body text-white/60 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
+                      className="font-body text-white/90 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
                     >
                       <span className="w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
                       {link.label}
@@ -170,19 +170,19 @@ const FooterSection: React.FC = () => {
                   <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
                     <MapPin className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5 group-hover:text-[#C8AC59] transition-colors">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
+                  <span className="font-body text-white/90 text-[14px] leading-relaxed pt-1.5 group-hover:text-[#C8AC59] transition-colors">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
                 </li>
                 <li className="flex items-center gap-4 group">
                   <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
                     <Phone className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <a href="tel:+919701951666" className="font-body text-white/60 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">+91 9701951666</a>
+                  <a href="tel:+919701951666" className="font-body text-white/90 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">+91 9701951666</a>
                 </li>
                 <li className="flex items-center gap-4 group">
                   <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
                     <Mail className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/60 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">support@numeraldoctrrine.com</a>
+                  <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/90 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">support@numeraldoctrrine.com</a>
                 </li>
               </ul>
             </div>
@@ -195,7 +195,7 @@ const FooterSection: React.FC = () => {
                   <li key={link.id}>
                     <button
                       onClick={() => setShowModal(link.id as 'terms' | 'privacy' | 'disclaimer')}
-                      className="font-body text-white/60 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
+                      className="font-body text-white/90 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
                     >
                       <span className="w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
                       {link.label}
