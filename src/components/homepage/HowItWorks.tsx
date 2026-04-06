@@ -150,7 +150,7 @@ const HowItWorks: React.FC = () => {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative bg-[#657B4D] py-20 lg:pb-32 lg:pt-36 overflow-hidden z-0"
+      className="relative bg-[#657B4D] py-20 lg:pb-52 lg:pt-36 overflow-hidden z-0"
       style={{ borderRadius: '50% 50% 0 0 / 80px 80px 0 0' }}
     >
 
