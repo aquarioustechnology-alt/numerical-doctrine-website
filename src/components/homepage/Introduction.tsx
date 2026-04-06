@@ -61,7 +61,7 @@ const Introduction: React.FC = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-white pb-24 lg:pb-32 relative overflow-hidden pt-0"
+      className="bg-white pb-12 lg:pb-16 relative overflow-hidden pt-0"
     >
       <div className="max-w-[1440px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
         {/* Badge */}

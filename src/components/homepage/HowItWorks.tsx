@@ -44,6 +44,22 @@ const HowItWorks: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      // Entire section reveal (bottom to top, scrub driven like healmybones)
+      // We use y to animate the translate and marginTop to compensate for the gap
+      gsap.fromTo(sectionRef.current,
+        { y: 150 },
+        { 
+          y: 0, 
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "top 30%",
+            scrub: 0.5,
+          }
+        }
+      );
+
       // Animate steps
       const stepElements = stepsRef.current?.querySelectorAll('.step-item');
       if (stepElements) {
@@ -73,20 +89,9 @@ const HowItWorks: React.FC = () => {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative bg-[#657B4D] py-24 lg:pb-32 lg:pt-36 overflow-hidden"
+      className="relative bg-[#657B4D] py-24 lg:pb-32 lg:pt-36 overflow-hidden z-10"
+      style={{ borderRadius: '50% 50% 0 0 / 80px 80px 0 0' }}
     >
-      {/* Oval Shaped Top Transition */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20">
-        <svg 
-          viewBox="0 0 1440 120" 
-          fill="none" 
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg" 
-          className="relative block h-16 w-full lg:h-32 fill-white"
-        >
-          <path d="M0 0C300 120 1140 120 1440 0V0H0V0Z" />
-        </svg>
-      </div>
 
       <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header */}

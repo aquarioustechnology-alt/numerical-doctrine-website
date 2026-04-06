@@ -86,12 +86,15 @@ function App() {
       {/* Hero Section */}
       <HeroSection />
       
-      {/* Introduction Section */}
-      <Introduction />
-      
-      {/* How It Works */}
-      <HowItWorks />
-      
+      {/* Main Content Sections with White Continuity */}
+      <div className="bg-white">
+        {/* Introduction Section */}
+        <Introduction />
+        
+        {/* How It Works (Parallax Reveal) */}
+        <HowItWorks />
+      </div>
+
       {/* What is Numerology */}
       <WhatIsNumerology />
       
