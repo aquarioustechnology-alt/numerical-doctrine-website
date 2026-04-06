@@ -51,7 +51,10 @@ const FooterSection: React.FC = () => {
     <>
       <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-10 lg:pt-12">
         {/* Decorative Mystical Numerology SVG - Top Right */}
-        <div className="absolute top-0 right-0 w-[450px] h-[450px] opacity-[0.16] pointer-events-none translate-x-1/4 -translate-y-1/4 z-0 animate-[spin_80s_linear_infinite]">
+        <div 
+          className="absolute top-0 right-0 w-[450px] h-[450px] opacity-[0.16] pointer-events-none translate-x-1/4 -translate-y-1/4 z-0"
+          style={{ animation: 'spin 80s linear infinite' }}
+        >
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             <circle cx="100" cy="100" r="98" stroke="#C8AC59" strokeWidth="0.5" />
             <circle cx="100" cy="100" r="92" stroke="#C8AC59" strokeWidth="0.2" strokeDasharray="1 2" />
@@ -112,7 +115,7 @@ const FooterSection: React.FC = () => {
             {/* Brand Identifier (Span 4) */}
             <div className="footer-reveal lg:col-span-4 pr-0 lg:pr-12">
               <div className="mb-6">
-                <img src="/logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[180px] lg:w-[220px] object-contain" />
+                <img src="/Logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[180px] lg:w-[220px] object-contain" />
               </div>
               <p className="font-body text-white/70 text-[14px] leading-relaxed mb-6">
                 Decode Your Numbers. Design Your Destiny. A professionally managed numerology consultancy registered under the Ministry of Corporate Affairs, Government of India.
@@ -120,8 +123,8 @@ const FooterSection: React.FC = () => {
               {/* Social Icons */}
               <div className="flex items-center gap-4">
                 {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                  <button key={i} className="w-[42px] h-[42px] rounded-full bg-[#4A5C37] flex items-center justify-center hover:bg-brand-gold hover:border-transparent hover:text-[#1A0F0F] text-white transition-all duration-300 transform hover:-translate-y-1">
-                    <Icon className="w-4 h-4" />
+                  <button key={i} className="w-[42px] h-[42px] rounded-full bg-[#4A5C37] flex items-center justify-center hover:bg-[#4A5C37] hover:text-[#C8AC59] text-white transition-all duration-300 transform hover:-translate-y-1 group">
+                    <Icon className="w-4 h-4 transition-colors duration-300" />
                   </button>
                 ))}
               </div>
@@ -156,22 +159,22 @@ const FooterSection: React.FC = () => {
               <h4 className="font-display text-lg text-white uppercase tracking-widest mb-7 border-b border-brand-gold/20 pb-3 inline-block">Contact</h4>
               <ul className="space-y-5">
                 <li className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
-                    <MapPin className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <MapPin className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5 group-hover:text-white transition-colors">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
+                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5 group-hover:text-[#C8AC59] transition-colors">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
                 </li>
                 <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
-                    <Phone className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <Phone className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <a href="tel:+919701951666" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">+91 9701951666</a>
+                  <a href="tel:+919701951666" className="font-body text-white/60 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">+91 9701951666</a>
                 </li>
                 <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold transition-colors">
-                    <Mail className="w-4 h-4 text-white group-hover:text-[#1A0F0F]" />
+                  <div className="w-10 h-10 rounded-full bg-[#4A5C37] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <Mail className="w-4 h-4 text-white group-hover:text-[#C8AC59] transition-colors" />
                   </div>
-                  <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">support@numeraldoctrrine.com</a>
+                  <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/60 text-[15px] group-hover:text-[#C8AC59] hover:text-[#C8AC59] transition-colors">support@numeraldoctrrine.com</a>
                 </li>
               </ul>
             </div>
