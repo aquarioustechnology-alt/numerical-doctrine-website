@@ -71,3 +71,9 @@ export default defineConfig([
   },
 ])
 ```
+
+## Development Rules
+
+1. **Isolation**: When asked to design or modify a specific section (identifiable by its heading), only work on that section. Do not modify other sections, pages, or global components unless explicitly requested.
+2. **Task Independence**: Do not let previous prompts or successful changes influence the current task. Each design request should be treated independently based on its specific instructions to avoid unintended changes across the project.
+3. **Strict Adherence**: Always respect these boundaries to maintain project integrity and follow the user's specific design intent.

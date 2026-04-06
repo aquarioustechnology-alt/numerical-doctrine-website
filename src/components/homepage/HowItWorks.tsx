@@ -152,13 +152,13 @@ const HowItWorks: React.FC = () => {
           <h2 className="font-display text-white text-3xl lg:text-5xl leading-tight mb-4 tracking-wide">
             How Numerology <span className="text-brand-gold font-normal">Works</span>
           </h2>
-          <p className="font-body text-white/70 max-w-xl mx-auto text-[16px] lg:text-[18px]">
+          <p className="font-body text-white/70 mx-auto text-[16px] lg:text-[18px]">
             This process ensures that your life is aligned with positive numerical energy.
           </p>
         </div>
 
         {/* Decorative Dotted Line */}
-        <div ref={lineRef} className="relative mb-12 lg:mb-16">
+        <div ref={lineRef} className="relative mb-6 lg:mb-10">
           <div className="dotted-line absolute top-1/2 left-0 w-full border-t border-dashed border-brand-gold/20 origin-left" />
           <div className="relative grid grid-cols-5">
             {['☽', '✦', '☼', '◈', '✧'].map((icon, i) => (
@@ -187,13 +187,56 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-20 lg:mt-24 text-center">
+        <div className="mt-12 lg:mt-16 text-center">
           <button
             onClick={() => scrollToSection('contact')}
             className="btn-outline-white px-12 py-5 text-[15px] uppercase tracking-widest font-semibold"
           >
             Book a Consultation with Us
           </button>
+        </div>
+        {/* Decorative Rotating Numerology Mandala at Bottom Left */}
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 opacity-25 pointer-events-none z-0">
+          <svg
+            className="w-full h-full animate-[spin_80s_linear_infinite]"
+            viewBox="0 0 200 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Sacred Geometry Mandala Base */}
+            <circle cx="100" cy="100" r="95" stroke="white" strokeWidth="0.3" strokeDasharray="4 4" opacity="0.3" />
+            <circle cx="100" cy="100" r="70" stroke="white" strokeWidth="0.3" opacity="0.4" />
+            
+            {/* The 4 main directions with numbers */}
+            <g opacity="0.8">
+              <text x="100" y="25" fill="#C8AC59" fontSize="14" textAnchor="middle" fontWeight="bold">9</text>
+              <text x="100" y="185" fill="#C8AC59" fontSize="14" textAnchor="middle" fontWeight="bold">1</text>
+              <text x="25" y="105" fill="#C8AC59" fontSize="14" textAnchor="middle" fontWeight="bold">8</text>
+              <text x="175" y="105" fill="#C8AC59" fontSize="14" textAnchor="middle" fontWeight="bold">2</text>
+            </g>
+
+            {/* Geometric Lines */}
+            <path
+              d="M100 20C100 20 120 60 180 100C120 140 100 180 100 180C100 180 80 140 20 100C80 60 100 20 100 20Z"
+              stroke="white"
+              strokeWidth="0.5"
+              opacity="0.5"
+            />
+            
+            {/* Central Number Circle */}
+            <circle cx="100" cy="100" r="30" stroke="#C8AC59" strokeWidth="0.5" opacity="0.6" />
+            <text x="100" y="106" fill="white" fontSize="18" textAnchor="middle" fontWeight="bold" opacity="0.9">5</text>
+
+            {/* Orbiting smaller numbers */}
+            <g opacity="0.5">
+              <text x="50" y="55" fill="white" fontSize="10" textAnchor="middle">4</text>
+              <text x="150" y="55" fill="white" fontSize="10" textAnchor="middle">3</text>
+              <text x="50" y="155" fill="white" fontSize="10" textAnchor="middle">7</text>
+              <text x="150" y="155" fill="white" fontSize="10" textAnchor="middle">6</text>
+            </g>
+
+            <circle cx="100" cy="100" r="10" fill="white" fillOpacity="0.1" />
+          </svg>
         </div>
       </div>
     </section>
