@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center pr-6">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-6">
         {/* Left Content (65%) */}
         <div 
           ref={contentRef}
@@ -99,10 +99,10 @@ const HeroSection: React.FC = () => {
             {/* Trust Section Wrapper */}
             <div 
               ref={trustRef}
-              className="relative flex items-center mb-5 max-w-xl mx-auto lg:mx-0 ml-10 lg:ml-12"
+              className="relative flex items-center mb-8 lg:mb-5 max-w-xl mx-auto lg:mx-0 lg:ml-12"
             >
               {/* Badge Image PUSHED outside the rectangular div */}
-              <div className="absolute -left-10 lg:-left-12 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center z-20 drop-shadow-xl">
+              <div className="absolute -left-6 lg:-left-12 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center z-20 drop-shadow-xl">
                 <img 
                   src="/images/homepage/trust-badge.png" 
                   alt="Trust Badge" 
@@ -111,7 +111,7 @@ const HeroSection: React.FC = () => {
               </div>
 
               {/* The Rectangular Div (Glass Morphism) containing the content */}
-              <div className="flex-1 p-5 pl-12 lg:pl-16 rounded-2xl glass-morphism border border-white/20">
+              <div className="flex-1 p-5 pl-8 lg:pl-16 rounded-2xl glass-morphism border border-white/20">
                 <p className="font-body text-xs lg:text-[13px] text-[#1A0F0F]/90 leading-relaxed text-left">
                   <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
                   registered entity under the MCA, Government of India—guaranteeing 
@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Right Image (35%) */}
-        <div className="w-full lg:w-[35%] relative flex items-center justify-center px-0">
+        <div className="w-full lg:w-[35%] relative flex items-center justify-center mt-12 lg:mt-0 px-0">
           <div className="relative w-[85%] lg:w-full h-full lg:h-[95%]">
             {/* Rotating Hero Image */}
             <div className="hero-rotate-img w-full h-full flex items-center justify-center">
