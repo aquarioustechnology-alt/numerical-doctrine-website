@@ -7,9 +7,9 @@ import './App.css';
 import HeaderSection from './components/common/HeaderSection';
 import HeroSection from './components/homepage/HeroSection';
 import Introduction from './components/homepage/Introduction';
-import WhatIsNumerology from './components/homepage/WhatIsNumerology';
 import HowItWorks from './components/homepage/HowItWorks';
-import TypesOfNumerology from './sections/TypesOfNumerology';
+import TypesOfNumerology from './components/homepage/TypesOfNumerology';
+import WhatIsNumerology from './components/homepage/WhatIsNumerology';
 import ServicesSection from './sections/ServicesSection';
 import WhyChooseUs from './sections/WhyChooseUs';
 import Testimonials from './sections/Testimonials';
@@ -93,13 +93,13 @@ function App() {
         
         {/* How It Works (Parallax Reveal) */}
         <HowItWorks />
+        
+        {/* Types of Numerology (Light themed) */}
+        <TypesOfNumerology />
       </div>
 
       {/* What is Numerology */}
       <WhatIsNumerology />
-      
-      {/* Types of Numerology */}
-      <TypesOfNumerology />
       
       {/* Services */}
       <ServicesSection />
