@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#FDF7E7] z-10 pt-16 pb-20 lg:pt-24 lg:pb-32"
+      className="relative w-full overflow-hidden bg-[#FDF7E7] z-10 pt-16 pb-[130px] lg:pt-24 lg:pb-[178px]"
     >
       {/* Background Section (Minimal) */}
       <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
