@@ -96,23 +96,28 @@ const HeroSection: React.FC = () => {
               numerology insights backed by ancient wisdom.
             </p>
 
-            {/* Trust Statement */}
-            <div
+            {/* Trust Section Wrapper */}
+            <div 
               ref={trustRef}
-              className="flex items-center gap-6 mb-5 p-5 rounded-2xl glass-morphism max-w-xl mx-auto lg:mx-0 border border-white/20 overflow-hidden"
+              className="relative flex items-center mb-5 max-w-xl mx-auto lg:mx-0 ml-10 lg:ml-12"
             >
-              <div className="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center">
+              {/* Badge Image PUSHED outside the rectangular div */}
+              <div className="absolute -left-10 lg:-left-12 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center z-20 drop-shadow-xl">
                 <img 
                   src="/images/homepage/trust-badge.png" 
                   alt="Trust Badge" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="font-body text-xs lg:text-[13px] text-[#1A0F0F]/90 leading-relaxed text-left flex-1">
-                <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
-                registered entity under the MCA, Government of India—guaranteeing 
-                transparency and professional global standards.
-              </p>
+
+              {/* The Rectangular Div (Glass Morphism) containing the content */}
+              <div className="flex-1 p-5 pl-12 lg:pl-16 rounded-2xl glass-morphism border border-white/20">
+                <p className="font-body text-xs lg:text-[13px] text-[#1A0F0F]/90 leading-relaxed text-left">
+                  <strong className="text-[#1A0F0F] font-semibold">Numeral Doctrrine Private Limited</strong> is a 
+                  registered entity under the MCA, Government of India—guaranteeing 
+                  transparency and professional global standards.
+                </p>
+              </div>
             </div>
 
             {/* CTA Button */}
