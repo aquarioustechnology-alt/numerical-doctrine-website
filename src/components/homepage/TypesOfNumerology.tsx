@@ -70,31 +70,23 @@ const TypesOfNumerology: React.FC = () => {
     <section
       ref={sectionRef}
       id="types-of-numerology"
-      className="relative py-20 overflow-hidden bg-white z-20"
+      className="relative py-[100px] overflow-hidden bg-white z-20"
     >
       <div className="relative z-10 px-6 max-w-[1440px] mx-auto">
-        {/* Split Header Section */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-8 lg:gap-16 mb-12 lg:mb-16">
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-3 block">
-              Systems We Use
-            </span>
-            <h2
-              className="font-display text-[#1A0F0F] leading-tight"
-              style={{
-                fontSize: 'clamp(28px, 4vw, 48px)',
-                letterSpacing: '0.04em',
-              }}
-            >
-              Types of <span className="text-brand-green">Numerology</span>
-            </h2>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <p className="font-body text-[#1A0F0F]/70 text-lg leading-relaxed text-center lg:text-left lg:max-w-xl">
-              We employ multiple ancient and modern numerology systems to provide comprehensive insights tailored to your unique vibration.
-            </p>
-          </div>
+        {/* Centered Header Section */}
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-4 block">
+            Systems We Use
+          </span>
+          <h2
+            className="font-display text-[#1A0F0F] leading-tight"
+            style={{
+              fontSize: 'clamp(32px, 5vw, 48px)',
+              letterSpacing: '0.04em',
+            }}
+          >
+            Types of <span className="text-brand-green">Numerology</span>
+          </h2>
         </div>
 
         {/* Premium Editorial Cards Grid */}
@@ -109,8 +101,8 @@ const TypesOfNumerology: React.FC = () => {
               whileHover={{ y: -8 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              {/* Image side - Modern editorial style */}
-              <div className="relative w-full xl:w-[45%] aspect-[4/5] rounded-[24px] lg:rounded-[32px] overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+              {/* Image side - Modern editorial style with shorter aspect ratio */}
+              <div className="relative w-full xl:w-[45%] aspect-[4/4.2] rounded-[24px] lg:rounded-[32px] overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
                 <motion.img
                   src={type.image}
                   alt={type.title}
