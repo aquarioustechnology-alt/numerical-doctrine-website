@@ -186,7 +186,7 @@ const WhatIsNumerology: React.FC = () => {
                 </div>
                
                {/* Dynamic Smooth Badge Overlay - RESEARCH PILLARS LOOP */}
-               <div className="absolute -bottom-6 -left-6 p-6 bg-[#2a1c1c] border border-[#C8AC59]/60 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 w-44">
+               <div className="absolute -bottom-6 -left-6 p-6 bg-[#2a1c1c] border border-[#C8AC59]/60 rounded-[28px] z-20 w-44">
                   <div className="text-center overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.div
