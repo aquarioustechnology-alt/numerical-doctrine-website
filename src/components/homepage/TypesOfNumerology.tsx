@@ -49,16 +49,17 @@ const TypesOfNumerology: React.FC = () => {
       if (cards) {
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 50 },
+          { opacity: 0, y: 60, scale: 0.95 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power2.out',
+            scale: 1,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: cardsRef.current,
-              start: 'top 80%',
+              start: 'top 85%',
               toggleActions: 'play none none reverse',
             },
           }
@@ -73,89 +74,88 @@ const TypesOfNumerology: React.FC = () => {
     <section
       ref={sectionRef}
       id="types-of-numerology"
-      className="relative py-24 lg:py-32 overflow-hidden bg-white"
+      className="relative py-28 lg:py-40 overflow-hidden -mt-36 z-20"
     >
-      {/* Full Strength Background Image */}
+      {/* Background Image - Full Strength / Not stretched */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-white"
         style={{ 
           backgroundImage: "url('/images/homepage/types%20of%20numerlogy%20BG.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '100% auto',
+          backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat'
         }}
       />
 
       <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16 lg:mb-20">
-          <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-3 block">
+        <div className="text-center mb-24 lg:mb-32">
+          <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-4 block">
             Systems We Use
           </span>
           <h2
-            className="font-display text-[#1A0F0F] leading-tight mb-4"
+            className="font-display text-[#1A0F0F] leading-tight mb-6"
             style={{
-              fontSize: 'clamp(32px, 5vw, 56px)',
+              fontSize: 'clamp(32px, 6vw, 64px)',
               letterSpacing: '0.02em',
             }}
           >
             Types of <span className="text-brand-green">Numerology</span>
           </h2>
-          <div className="w-24 h-1 bg-brand-gold/30 mx-auto mb-6 rounded-full" />
-          <p className="font-body text-[#1A0F0F]/70 max-w-2xl mx-auto text-lg leading-relaxed">
+          <div className="w-16 h-0.5 bg-brand-gold/40 mx-auto mb-8" />
+          <p className="font-body text-[#1A0F0F]/70 max-w-2xl mx-auto text-xl leading-relaxed">
             We employ multiple ancient and modern numerology systems to provide comprehensive insights tailored to your unique vibration.
           </p>
         </div>
 
-        {/* Cards Grid */}
+        {/* Premium Redesigned Cards Grid */}
         <div
           ref={cardsRef}
-          className="grid md:grid-cols-2 gap-8 lg:gap-10"
+          className="grid md:grid-cols-2 gap-12 lg:gap-16"
         >
           {types.map((type, index) => (
             <div
               key={index}
-              className="group relative bg-white border border-[#657B4D]/10 rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(101,123,77,0.1)] transition-all duration-500 flex flex-col"
+              className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
             >
-              {/* Image with subtle zoom on hover */}
-              <div className="relative h-64 overflow-hidden">
+              {/* Image side - Modern editorial style */}
+              <div className="relative w-full lg:w-1/2 aspect-[4/5] rounded-[32px] overflow-hidden group">
                 <img
                   src={type.image}
                   alt={type.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                {/* Modern light gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+                {/* Minimalist Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F0F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Minimalist Number badge */}
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white/90 backdrop-blur-md border border-[#657B4D]/20 shadow-lg flex items-center justify-center z-20">
-                  <span className="font-display text-base text-[#657B4D] font-semibold">{type.number}</span>
-                </div>
+                {/* Float Number */}
+                <span className="absolute top-8 left-8 font-display text-5xl lg:text-7xl text-white/90 drop-shadow-lg z-20">
+                  {type.number}
+                </span>
               </div>
 
-              {/* Content area */}
-              <div className="p-8 lg:p-10 flex flex-col flex-grow">
-                <h3 className="font-display text-2xl text-[#1A0F0F] uppercase tracking-wide mb-4 transition-colors duration-300 group-hover:text-brand-green">
+              {/* Content side */}
+              <div className="w-full lg:w-1/2 pt-4">
+                <h3 className="font-display text-3xl lg:text-4xl text-[#1A0F0F] uppercase tracking-wide mb-6">
                   {type.title}
                 </h3>
-                <p className="font-body text-[#1A0F0F]/60 text-[16px] leading-relaxed mb-6">
+                
+                <p className="font-body text-[#1A0F0F]/70 text-lg leading-relaxed mb-8 border-l-2 border-brand-green pl-6">
                   {type.description}
                 </p>
                 
-                {/* Premium Benefit box */}
-                <div className="p-4 lg:p-5 rounded-xl bg-brand-gold/5 border-l-4 border-brand-gold mb-6 italic">
-                  <p className="font-body text-sm text-[#1A0F0F]/80">
-                    <strong className="text-brand-gold not-italic uppercase tracking-wider text-xs mr-2">Why it matters:</strong> 
+                <div className="mb-8 p-6 rounded-2xl bg-brand-gold/5 border border-brand-gold/10">
+                  <span className="block font-display text-xs text-brand-gold tracking-widest uppercase mb-3">Why it matters</span>
+                  <p className="font-body text-[#1A0F0F]/80 text-sm leading-relaxed">
                     {type.benefit}
                   </p>
                 </div>
 
-                {/* Tags Section */}
-                <div className="mt-auto flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {type.features.map((feature, fIndex) => (
                     <span
                       key={fIndex}
-                      className="px-4 py-1.5 rounded-full bg-[#657B4D]/5 border border-[#657B4D]/10 text-[#657B4D] text-[13px] font-body font-medium tracking-wide uppercase transition-all duration-300 group-hover:bg-[#657B4D] group-hover:text-white"
+                      className="px-4 py-2 rounded-full border border-[#657B4D]/20 text-[#657B4D] text-xs font-body font-semibold tracking-wider uppercase bg-white/50"
                     >
                       {feature}
                     </span>
