@@ -6,6 +6,7 @@ import './App.css';
 // Import sections
 import HeaderSection from './components/common/HeaderSection';
 import HeroSection from './components/homepage/HeroSection';
+import Introduction from './components/homepage/Introduction';
 import WhatIsNumerology from './sections/WhatIsNumerology';
 import HowItWorks from './sections/HowItWorks';
 import TypesOfNumerology from './sections/TypesOfNumerology';
@@ -84,6 +85,9 @@ function App() {
       
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Introduction Section */}
+      <Introduction />
       
       {/* What is Numerology */}
       <WhatIsNumerology />
