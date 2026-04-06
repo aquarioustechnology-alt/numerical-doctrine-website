@@ -10,7 +10,7 @@ import Introduction from './components/homepage/Introduction';
 import HowItWorks from './components/homepage/HowItWorks';
 import TypesOfNumerology from './components/homepage/TypesOfNumerology';
 import WhatIsNumerology from './components/homepage/WhatIsNumerology';
-import Testimonials from './sections/Testimonials';
+import TestimonialsSection from './components/homepage/TestimonialsSection';
 import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import FooterSection from './components/common/FooterSection';
@@ -100,7 +100,7 @@ function App() {
       <WhatIsNumerology />
       
       {/* Testimonials */}
-      <Testimonials />
+      <TestimonialsSection />
       
       {/* About Section */}
       <AboutSection />

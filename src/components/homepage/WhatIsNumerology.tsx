@@ -107,7 +107,7 @@ const WhatIsNumerology: React.FC = () => {
     <section
       ref={sectionRef}
       id="what-is-numerology"
-      className="relative pt-[240px] pb-24 lg:pt-[240px] lg:pb-[120px] overflow-hidden bg-white"
+      className="relative pt-[120px] pb-24 lg:pt-[120px] lg:pb-[120px] overflow-hidden bg-white"
     >
       {/* RAW LIGHT BACKGROUND IMAGE */}
       <div 
