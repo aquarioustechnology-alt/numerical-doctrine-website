@@ -30,6 +30,17 @@ const FooterSection: React.FC = () => {
           }
         );
       }
+
+      // Wheel rotation
+      const wheel = sectionRef.current?.querySelector('.footer-wheel');
+      if (wheel) {
+        gsap.to(wheel, {
+          rotation: 360,
+          duration: 80,
+          repeat: -1,
+          ease: 'none',
+        });
+      }
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -49,12 +60,9 @@ const FooterSection: React.FC = () => {
 
   return (
     <>
-      <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-10 lg:pt-12">
+      <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-[80px]">
         {/* Decorative Mystical Numerology SVG - Top Right */}
-        <div 
-          className="absolute top-0 right-0 w-[450px] h-[450px] opacity-[0.16] pointer-events-none translate-x-1/4 -translate-y-1/4 z-0"
-          style={{ animation: 'spin 80s linear infinite' }}
-        >
+        <div className="footer-wheel absolute top-0 right-0 w-[450px] h-[450px] opacity-[0.16] pointer-events-none translate-x-1/4 -translate-y-1/4 z-0">
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             <circle cx="100" cy="100" r="98" stroke="#C8AC59" strokeWidth="0.5" />
             <circle cx="100" cy="100" r="92" stroke="#C8AC59" strokeWidth="0.2" strokeDasharray="1 2" />
@@ -115,7 +123,7 @@ const FooterSection: React.FC = () => {
             {/* Brand Identifier (Span 4) */}
             <div className="footer-reveal lg:col-span-4 pr-0 lg:pr-12">
               <div className="mb-6">
-                <img src="/Logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[180px] lg:w-[220px] object-contain" />
+                <img src="/Logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[150px] lg:w-[180px] object-contain" />
               </div>
               <p className="font-body text-white/70 text-[14px] leading-relaxed mb-6">
                 Decode Your Numbers. Design Your Destiny. A professionally managed numerology consultancy registered under the Ministry of Corporate Affairs, Government of India.
