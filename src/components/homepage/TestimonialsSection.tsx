@@ -45,7 +45,7 @@ const TestimonialsSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="relative py-24 lg:py-[100px] bg-white overflow-hidden">
+    <section id="testimonials" className="relative pt-24 pb-16 lg:pt-[100px] lg:pb-[80px] bg-white overflow-hidden">
       <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -69,8 +69,8 @@ const TestimonialsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Carousel Content */}
-        <div className="relative max-w-6xl mx-auto mt-24">
+        {/* Carousel Content - REDUCED GAP from navigations (from mt-24 to mt-12) */}
+        <div className="relative max-w-6xl mx-auto mt-12 transition-all duration-500">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -78,10 +78,10 @@ const TestimonialsSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative bg-[#F9F9F9] rounded-[40px] p-10 lg:p-14 lg:pl-80 flex flex-col lg:flex-row items-center lg:items-start min-h-[200px]"
+              className="relative bg-[#FFFADB] rounded-[40px] p-10 lg:p-14 lg:pl-80 flex flex-col lg:flex-row items-center lg:items-start min-h-[200px]"
             >
-              {/* Overlapping Decoration Area - Pushed further left for better clearance */}
-              <div className="absolute -top-12 lg:-top-16 left-1/2 -translate-x-1/2 lg:left-16 lg:translate-x-0 flex items-center justify-center">
+              {/* Overlapping Decoration Area - Logo Pushed MORE TOWARDS BOTTOM (from -top-16 to -top-8) */}
+              <div className="absolute -top-6 lg:-top-8 left-1/2 -translate-x-1/2 lg:left-16 lg:translate-x-0 flex items-center justify-center">
                  {/* Testimonial Logo SVG Decoration Rotating alone */}
                  <div className="relative w-[140px] h-[140px] lg:w-[180px] lg:h-[180px] z-10 animate-slow-spin-reverse opacity-80">
                    <img 

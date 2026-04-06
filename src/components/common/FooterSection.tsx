@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Shield, FileText, Lock, X } from 'lucide-react';
+import { Shield, FileText, Lock, X, Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,34 +11,28 @@ const FooterSection: React.FC = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const footerContent = sectionRef.current?.querySelector('.footer-content');
-      if (footerContent) {
+      const elements = sectionRef.current?.querySelectorAll('.footer-reveal');
+      if (elements && elements.length > 0) {
         gsap.fromTo(
-          footerContent,
-          { opacity: 0, y: 20 },
+          elements,
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: 'top 90%',
+              start: 'top 85%',
               toggleActions: 'play none none reverse',
             },
           }
         );
       }
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
-
-  const legalLinks = [
-    { id: 'terms', label: 'Terms & Conditions', icon: FileText },
-    { id: 'privacy', label: 'Privacy Policy', icon: Lock },
-    { id: 'disclaimer', label: 'Legal Disclaimer', icon: Shield },
-  ];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -47,57 +41,71 @@ const FooterSection: React.FC = () => {
     }
   };
 
+  const legalLinks = [
+    { id: 'terms', label: 'Terms & Conditions', icon: FileText },
+    { id: 'privacy', label: 'Privacy Policy', icon: Lock },
+    { id: 'disclaimer', label: 'Legal Disclaimer', icon: Shield },
+  ];
+
   return (
     <>
-      <footer
-        ref={sectionRef}
-        className="relative bg-espresso border-t border-gold/10"
-      >
-        <div className="footer-content px-6 lg:px-12 py-16 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            {/* Brand */}
-            <div className="lg:col-span-2">
-              <h3 className="font-display text-2xl text-ivory uppercase tracking-widest-xl mb-4">
-                Numeral Doctrrine
-              </h3>
-              <p className="font-body text-taupe leading-relaxed max-w-md mb-6">
-                Decode Your Numbers. Design Your Destiny. A professionally managed 
-                numerology consultancy registered under the Ministry of Corporate 
-                Affairs (MCA), Government of India.
+      <footer ref={sectionRef} className="relative bg-[#607647] overflow-hidden pt-12 lg:pt-16">
+        <div className="relative z-10 px-6 lg:px-12 max-w-[1440px] mx-auto">
+          
+          {/* Prominent CTA Section */}
+          <div className="footer-reveal text-center pb-12 lg:pb-16 border-b border-white/10">
+            <h2 className="font-display text-white leading-tight mb-6" style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}>
+              "Your life is already influenced by numbers"<br/>
+              <span className="text-brand-gold font-body font-normal text-xl lg:text-[28px] italic block mt-6 opacity-90">
+                Now it’s time to control and align them for success.
+              </span>
+            </h2>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-fill-brand px-8 lg:px-12 py-5 lg:py-6 text-[13px] lg:text-[15px] uppercase tracking-widest-xl shadow-2xl shadow-brand-gold/10 mt-4 rounded-full"
+            >
+              Book your consultation with Numeral Doctrrine Private Limited today.
+            </button>
+          </div>
+
+          {/* Core Footer Grid */}
+          <div className="py-10 lg:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
+            
+            {/* Brand Identifier (Span 4) */}
+            <div className="footer-reveal lg:col-span-4 pr-0 lg:pr-12">
+              <div className="mb-6">
+                <img src="/logo/white%20logo%20image.png" alt="Numeral Doctrrine" className="w-[180px] lg:w-[220px] object-contain" />
+              </div>
+              <p className="font-body text-white/70 text-[14px] leading-relaxed mb-6">
+                Decode Your Numbers. Design Your Destiny. A professionally managed numerology consultancy registered under the Ministry of Corporate Affairs, Government of India.
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-gold" />
-                </div>
-                <div>
-                  <span className="font-display text-xs text-gold uppercase tracking-wider block">
-                    MCA Registered
-                  </span>
-                  <span className="font-body text-xs text-taupe">
-                    Government of India
-                  </span>
-                </div>
+              {/* Social Icons */}
+              <div className="flex items-center gap-4">
+                {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
+                  <button key={i} className="w-[42px] h-[42px] rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold hover:text-[#1A0F0F] text-white/60 transition-all duration-300 transform hover:-translate-y-1">
+                    <Icon className="w-4 h-4" />
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-display text-sm text-ivory uppercase tracking-widest-xl mb-4">
-                Quick Links
-              </h4>
-              <ul className="space-y-2">
+            {/* Quick Links (Span 2) */}
+            <div className="footer-reveal lg:col-span-2 lg:col-start-6">
+              <h4 className="font-display text-lg text-white uppercase tracking-widest mb-7 border-b border-brand-gold/20 pb-3 inline-block">Menus</h4>
+              <ul className="space-y-4">
                 {[
                   { label: 'What is Numerology', id: 'what-is-numerology' },
-                  { label: 'Our Services', id: 'services' },
+                  { label: 'Types of Numerology', id: 'types-of-numerology' },
                   { label: 'How It Works', id: 'how-it-works' },
-                  { label: 'About Us', id: 'about' },
-                  { label: 'Contact', id: 'contact' },
+                  { label: 'Testimonials', id: 'testimonials' },
+                  { label: 'Contact Us', id: 'contact' },
                 ].map((link) => (
                   <li key={link.id}>
-                    <button
-                      onClick={() => scrollToSection(link.id)}
-                      className="font-body text-taupe text-sm hover:text-gold transition-colors"
+                    <button 
+                      onClick={() => scrollToSection(link.id)} 
+                      className="font-body text-white/60 hover:text-brand-gold transition-colors text-[15px] flex items-center group"
                     >
+                      <span className="w-0 h-[1px] bg-brand-gold transition-all duration-300 group-hover:w-4 mr-0 group-hover:mr-2"></span>
                       {link.label}
                     </button>
                   </li>
@@ -105,136 +113,124 @@ const FooterSection: React.FC = () => {
               </ul>
             </div>
 
-            {/* Legal */}
-            <div>
-              <h4 className="font-display text-sm text-ivory uppercase tracking-widest-xl mb-4">
-                Legal
-              </h4>
-              <ul className="space-y-2">
+            {/* Contact Details (Span 3) */}
+            <div className="footer-reveal lg:col-span-3 lg:col-start-8">
+              <h4 className="font-display text-lg text-white uppercase tracking-widest mb-7 border-b border-brand-gold/20 pb-3 inline-block">Contact</h4>
+              <ul className="space-y-5">
+                <li className="flex items-start gap-4 group">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                    <MapPin className="w-4 h-4 text-brand-gold" />
+                  </div>
+                  <span className="font-body text-white/60 text-[14px] leading-relaxed pt-1.5">Langalberia, Gobindapur, Baruipur, South 24 Parganas, Pin- 700145</span>
+                </li>
+                <li className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                    <Phone className="w-4 h-4 text-brand-gold" />
+                  </div>
+                  <a href="tel:+919701951666" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">+91 9701951666</a>
+                </li>
+                <li className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                    <Mail className="w-4 h-4 text-brand-gold" />
+                  </div>
+                  <a href="mailto:support@numeraldoctrrine.com" className="font-body text-white/60 text-[15px] hover:text-white transition-colors">support@numeraldoctrrine.com</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal Structure (Span 2) */}
+            <div className="footer-reveal lg:col-span-2 lg:col-start-11">
+              <h4 className="font-display text-lg text-white uppercase tracking-widest mb-7 border-b border-brand-gold/20 pb-3 inline-block">Legal</h4>
+              <ul className="space-y-4">
                 {legalLinks.map((link) => (
                   <li key={link.id}>
                     <button
                       onClick={() => setShowModal(link.id as 'terms' | 'privacy' | 'disclaimer')}
-                      className="font-body text-taupe text-sm hover:text-gold transition-colors flex items-center gap-2"
+                      className="font-body text-white/60 hover:text-white transition-colors text-[15px] flex items-center group"
                     >
-                      <link.icon className="w-3 h-3" />
                       {link.label}
                     </button>
                   </li>
                 ))}
               </ul>
             </div>
+            
           </div>
 
-          {/* Bottom Bar */}
-          <div className="pt-8 border-t border-gold/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-body text-taupe/60 text-xs">
-              © 2026 Numeral Doctrrine Private Limited. All rights reserved.
+          {/* Bottom Copyright Bar */}
+          <div className="footer-reveal py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-5 text-center md:text-left">
+            <p className="font-body text-white/40 text-[13px] tracking-wide">
+              © {new Date().getFullYear()} Numeral Doctrrine Private Limited. All rights reserved.
             </p>
-            <p className="font-body text-taupe/60 text-xs">
-              Registered under the Companies Act, 2013 | Government of India
-            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+               <p className="font-body text-white/40 text-[13px] tracking-wide">
+                 Images are AI generated
+               </p>
+               <span className="hidden sm:block text-white/20">|</span>
+               <p className="font-body text-white/40 text-[13px] tracking-wide">
+                 Designed by AQuarious
+               </p>
+            </div>
           </div>
         </div>
       </footer>
 
       {/* Legal Modals */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/90 backdrop-blur-sm">
-          <div className="relative w-full max-w-3xl max-h-[80vh] overflow-auto card-glass p-8">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#1A0F0F]/95 backdrop-blur-md animate-in fade-in duration-300">
+          <div className="relative w-full max-w-2xl max-h-[85vh] overflow-auto bg-white rounded-[24px] p-8 lg:p-12 shadow-2xl">
             <button
               onClick={() => setShowModal(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center hover:bg-gold/20 transition-colors"
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#1A0F0F]/5 flex items-center justify-center hover:bg-brand-gold hover:text-white transition-all transform hover:scale-110"
             >
-              <X className="w-4 h-4 text-gold" />
+              <X className="w-5 h-5 text-[#1A0F0F]" />
             </button>
 
             {showModal === 'terms' && (
               <>
-                <h2 className="font-display text-2xl text-ivory uppercase tracking-wider mb-6">
-                  Terms & Conditions
-                </h2>
-                <div className="space-y-4 font-body text-taupe text-sm leading-relaxed">
-                  <p>
-                    Welcome to the official website of <strong className="text-ivory">Numeral Doctrrine Private Limited</strong>, 
-                    a company duly incorporated and registered under the provisions of the Companies Act, 2013 
-                    and governed by the laws of India.
-                  </p>
-                  <p>
-                    These Terms & Conditions govern your access to and use of our website, services, 
-                    consultations, reports, and any associated digital platforms.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">Eligibility</h3>
-                  <p>
-                    By using this website, you represent and warrant that you are at least 18 years old 
-                    and legally competent to enter into a contract under the Indian Contract Act, 1872.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">No Refund Policy</h3>
-                  <p>
-                    Due to the customized and digital nature of services, all payments are final, 
-                    non-refundable, and non-transferable.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">Governing Law</h3>
-                  <p>
-                    These Terms shall be governed by the laws of India. All disputes shall be subject 
-                    to the exclusive jurisdiction of courts in Kolkata, West Bengal.
-                  </p>
+                <h2 className="font-display text-3xl text-[#1A0F0F] tracking-wide mb-8">Terms & Conditions</h2>
+                <div className="space-y-6 font-body text-[#1A0F0F]/70 text-[15px] leading-relaxed">
+                  <p>Welcome to the official website of <strong className="text-[#1A0F0F] font-bold">Numeral Doctrrine Private Limited</strong>, a company duly incorporated and registered under the provisions of the Companies Act, 2013 and governed by the laws of India.</p>
+                  <p>These Terms & Conditions govern your access to and use of our website, services, consultations, reports, and any associated digital platforms.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">Eligibility</h3>
+                  <p>By using this website, you represent and warrant that you are at least 18 years old and legally competent to enter into a contract under the Indian Contract Act, 1872.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">No Refund Policy</h3>
+                  <p>Due to the customized and digital nature of services, all payments are final, non-refundable, and non-transferable.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">Governing Law</h3>
+                  <p>These Terms shall be governed by the laws of India. All disputes shall be subject to the exclusive jurisdiction of courts in Kolkata, West Bengal.</p>
                 </div>
               </>
             )}
 
             {showModal === 'privacy' && (
               <>
-                <h2 className="font-display text-2xl text-ivory uppercase tracking-wider mb-6">
-                  Privacy Policy
-                </h2>
-                <div className="space-y-4 font-body text-taupe text-sm leading-relaxed">
-                  <p>
-                    This Privacy Policy describes how <strong className="text-ivory">Numeral Doctrrine Private Limited</strong> 
-                    collects, uses, stores, and protects your personal information.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">Information We Collect</h3>
-                  <ul className="list-disc list-inside space-y-1">
+                <h2 className="font-display text-3xl text-[#1A0F0F] tracking-wide mb-8">Privacy Policy</h2>
+                <div className="space-y-6 font-body text-[#1A0F0F]/70 text-[15px] leading-relaxed">
+                  <p>This Privacy Policy describes how <strong className="text-[#1A0F0F] font-bold">Numeral Doctrrine Private Limited</strong> collects, uses, stores, and protects your personal information.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-4">Information We Collect</h3>
+                  <ul className="list-disc pl-5 space-y-2 marker:text-brand-gold">
                     <li>Full Name</li>
                     <li>Date of Birth</li>
                     <li>Mobile Number</li>
                     <li>Email Address</li>
                     <li>Billing & Payment Details</li>
                   </ul>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">Data Protection</h3>
-                  <p>
-                    We do not sell, rent, or trade your personal information. We implement reasonable 
-                    security measures to protect your data.
-                  </p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">Data Protection</h3>
+                  <p>We do not sell, rent, or trade your personal information. We implement reasonable security measures to protect your data.</p>
                 </div>
               </>
             )}
 
             {showModal === 'disclaimer' && (
               <>
-                <h2 className="font-display text-2xl text-ivory uppercase tracking-wider mb-6">
-                  Legal Disclaimer
-                </h2>
-                <div className="space-y-4 font-body text-taupe text-sm leading-relaxed">
-                  <p>
-                    Numerology is a predictive, interpretative, and belief-based discipline. 
-                    The insights provided are derived from established numerological principles 
-                    and professional interpretation.
-                  </p>
-                  <p>
-                    However, numerology is <strong className="text-ivory">not an exact science</strong> and does not 
-                    constitute empirical, scientific, or universally verifiable results.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">No Guarantee</h3>
-                  <p>
-                    While we strive to provide accurate guidance, no assurance, warranty, or guarantee 
-                    of success, failure, or specific outcomes is provided.
-                  </p>
-                  <h3 className="font-display text-sm text-gold uppercase tracking-wider mt-4">Not a Substitute</h3>
-                  <p>
-                    Our services are not intended to replace professional advice in any field, 
-                    including legal, financial, medical, or psychological consultation.
-                  </p>
+                <h2 className="font-display text-3xl text-[#1A0F0F] tracking-wide mb-8">Legal Disclaimer</h2>
+                <div className="space-y-6 font-body text-[#1A0F0F]/70 text-[15px] leading-relaxed">
+                  <p>Numerology is a predictive, interpretative, and belief-based discipline. The insights provided are derived from established numerological principles and professional interpretation.</p>
+                  <p>However, numerology is <strong className="text-[#1A0F0F] font-bold">not an exact science</strong> and does not constitute empirical, scientific, or universally verifiable results.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">No Guarantee</h3>
+                  <p>While we strive to provide accurate guidance, no assurance, warranty, or guarantee of success, failure, or specific outcomes is provided.</p>
+                  <h3 className="font-display text-[11px] text-brand-gold uppercase tracking-[0.2em] font-bold mt-8 mb-2">Not a Substitute</h3>
+                  <p>Our services are not intended to replace professional advice in any field, including legal, financial, medical, or psychological consultation.</p>
                 </div>
               </>
             )}

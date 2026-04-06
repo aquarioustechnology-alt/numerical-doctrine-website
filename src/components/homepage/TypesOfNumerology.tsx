@@ -73,20 +73,27 @@ const TypesOfNumerology: React.FC = () => {
       className="relative pt-[100px] pb-[80px] overflow-hidden bg-white z-20"
     >
       <div className="relative z-10 px-6 max-w-[1440px] mx-auto">
-        {/* Left Aligned Header Section */}
-        <div className="text-left mb-12 lg:mb-16">
-          <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-4 block">
-            Systems We Use
-          </span>
-          <h2
-            className="font-display text-[#1A0F0F] leading-tight"
-            style={{
-              fontSize: 'clamp(32px, 5vw, 48px)',
-              letterSpacing: '0.04em',
-            }}
-          >
-            Types of <span className="text-brand-green">Numerology</span>
-          </h2>
+        {/* Header Section with Explore Button */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
+          <div className="text-left">
+            <span className="font-display text-brand-gold text-xs lg:text-sm tracking-widest-2xl uppercase mb-4 block">
+              Systems We Use
+            </span>
+            <h2
+              className="font-display text-[#1A0F0F] leading-tight"
+              style={{
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                letterSpacing: '0.04em',
+              }}
+            >
+              Types of <span className="text-brand-green">Numerology</span>
+            </h2>
+          </div>
+          <div className="pb-1">
+            <button className="btn-fill-brand px-8 lg:px-10 py-4 lg:py-5 text-sm lg:text-[15px] uppercase tracking-widest-xl font-semibold whitespace-nowrap">
+              Explore Services
+            </button>
+          </div>
         </div>
 
         {/* Premium Editorial Cards Grid */}

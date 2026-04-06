@@ -11,7 +11,7 @@ import HowItWorks from './components/homepage/HowItWorks';
 import TypesOfNumerology from './components/homepage/TypesOfNumerology';
 import WhatIsNumerology from './components/homepage/WhatIsNumerology';
 import TestimonialsSection from './components/homepage/TestimonialsSection';
-import ContactSection from './sections/ContactSection';
+import ContactSection from './components/homepage/ContactSection';
 import FooterSection from './components/common/FooterSection';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -103,8 +103,10 @@ function App() {
       
 
       
-      {/* Contact Section */}
-      <ContactSection />
+      <div className="bg-white">
+        {/* Contact Section */}
+        <ContactSection />
+      </div>
       
       {/* Footer */}
       <FooterSection />
