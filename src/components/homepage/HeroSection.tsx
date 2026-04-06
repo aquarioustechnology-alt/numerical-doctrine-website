@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield } from 'lucide-react';
@@ -45,45 +45,6 @@ const HeroSection: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  // Scroll-driven exit animation
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          onLeaveBack: () => {
-            gsap.to(headlineRef.current, { opacity: 1, y: 0, duration: 0.3 });
-            gsap.to(subheadlineRef.current, { opacity: 1, y: 0, duration: 0.3 });
-            gsap.to(trustRef.current, { opacity: 1, y: 0, duration: 0.3 });
-            gsap.to(ctaRef.current, { opacity: 1, y: 0, duration: 0.3 });
-            gsap.to(bgImageRef.current, { scale: 1, opacity: 1, duration: 0.3 });
-          },
-        },
-      });
-
-      // EXIT phase (70% - 100%)
-      scrollTl.fromTo(
-        contentRef.current,
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-10vh', ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        bgImageRef.current,
-        { scale: 1, opacity: 1 },
-        { scale: 1.08, opacity: 0.6, ease: 'none' },
-        0.7
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -95,24 +56,24 @@ const HeroSection: React.FC = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-screen min-h-screen lg:h-[85vh] overflow-hidden bg-[#FDF7E7] z-10 pb-20"
+      className="relative w-full overflow-hidden bg-[#FDF7E7] z-10 pt-16 pb-20 lg:pt-24 lg:pb-32"
     >
       {/* Background Section (Minimal) */}
       <div ref={bgImageRef} className="absolute inset-0 w-full h-full opacity-60">
         <img
-          src="/images/homepage/hero new background.png"
+          src="/images/homepage/hero new background 1.png"
           alt="Numerology background"
           className="w-full h-full object-cover"
         />
       </div>
 
-      <div className="relative z-10 w-full h-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center px-6">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center pr-6">
         {/* Left Content (65%) */}
         <div 
           ref={contentRef}
-          className="w-full lg:w-[65%] h-full flex flex-col justify-center text-center lg:text-left pt-24 lg:pt-16"
+          className="w-full lg:w-[65%] flex flex-col justify-center text-center lg:text-left pt-6 lg:pt-4"
         >
-          <div className="max-w-3xl mx-auto lg:mx-0 mt-10 lg:mt-20">
+          <div className="max-w-3xl mx-auto lg:mx-0 mt-4 lg:mt-6">
             {/* Headline */}
             <h1
               ref={headlineRef}
@@ -162,13 +123,18 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Right Image (35%) */}
-        <div className="w-full lg:w-[35%] h-[45vh] lg:h-full relative overflow-hidden flex items-center justify-center px-0">
-          <div className="relative w-[85%] lg:w-full h-full lg:h-[95%] group hero-rotate-img flex items-center justify-center">
-            <img 
-              src="/images/homepage/hero image.png" 
-              alt="Numerical Doctrine Hero" 
-              className="w-full h-full object-contain img-cinematic transition-transform duration-700"
-            />
+        <div className="w-full lg:w-[35%] relative flex items-center justify-center px-0">
+          <div className="relative w-[85%] lg:w-full h-full lg:h-[95%]">
+            {/* Rotating Hero Image */}
+            <div className="hero-rotate-img w-full h-full flex items-center justify-center">
+              <img 
+                src="/images/homepage/hero image.png" 
+                alt="Numerical Doctrine Hero" 
+                className="w-full h-full object-contain img-cinematic transition-transform duration-700"
+              />
+            </div>
+            
+            {/* Static Attention-Grabbing Fact Card Removed */}
           </div>
         </div>
       </div>

@@ -7,22 +7,8 @@ const HeaderSection: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const heroElement = document.getElementById('hero');
-
-    if (heroElement) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          setIsScrolled(!entry.isIntersecting);
-        },
-        { threshold: 0 }
-      );
-
-      observer.observe(heroElement);
-      return () => observer.disconnect();
-    }
-
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight * 0.9);
+      setIsScrolled(window.scrollY > 5);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -56,7 +42,7 @@ const HeaderSection: React.FC = () => {
             : 'bg-transparent'
         }`}
         style={{ 
-          paddingTop: isScrolled ? '12px' : '10px',
+          paddingTop: isScrolled ? '12px' : '6px',
           paddingBottom: isScrolled ? '12px' : '0px'
         }}
       >
@@ -70,11 +56,11 @@ const HeaderSection: React.FC = () => {
               src={isScrolled ? "/Logo/only-icon.png" : "/Logo/svg icon.svg"} 
               alt="Numeral Doctrine Logo" 
               className={`w-auto object-contain transition-all duration-500 ${
-                isScrolled ? 'h-14 lg:h-16' : 'h-20 lg:h-40'
+                isScrolled ? 'h-14 lg:h-16' : 'h-18 lg:h-32'
               }`}
               style={{ 
-                marginTop: isScrolled ? '0px' : '-35px',
-                marginBottom: isScrolled ? '0px' : '-20px'
+                marginTop: isScrolled ? '0px' : '-25px',
+                marginBottom: isScrolled ? '0px' : '-15px'
               }}
             />
           </button>
