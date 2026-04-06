@@ -42,28 +42,30 @@ const HeaderSection: React.FC = () => {
             : 'bg-transparent'
         }`}
         style={{ 
-          paddingTop: isScrolled ? '12px' : '6px',
-          paddingBottom: isScrolled ? '12px' : '0px'
+          paddingTop: isScrolled ? '10px' : '4px',
+          paddingBottom: isScrolled ? '10px' : '0px'
         }}
       >
         <div className={`flex items-center justify-between max-w-[1440px] mx-auto px-6 relative ${!isScrolled ? 'border-b border-[#C8AC59]/30 pb-0.5' : ''}`}>
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center group transition-transform hover:scale-105 duration-300"
-          >
-            <img 
-              src={isScrolled ? "/Logo/only-icon.png" : "/Logo/svg icon.svg"} 
-              alt="Numeral Doctrine Logo" 
-              className={`w-auto object-contain transition-all duration-500 ${
-                isScrolled ? 'h-14 lg:h-16' : 'h-18 lg:h-32'
-              }`}
-              style={{ 
-                marginTop: '0px',
-                marginBottom: '0px'
-              }}
-            />
-          </button>
+          <div className="flex items-center">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center group transition-transform hover:scale-105 duration-300"
+            >
+              <img 
+                src={isScrolled ? "/Logo/only-icon.png" : "/Logo/svg-icon.svg"} 
+                alt="Numeral Doctrine Logo" 
+                className={`w-auto object-contain transition-all duration-500 ${
+                  isScrolled ? 'h-11 lg:h-14' : 'h-24 lg:h-36'
+                }`}
+                style={{ 
+                  marginTop: isScrolled ? '0px' : '-20px',
+                  marginBottom: isScrolled ? '0px' : '-15px'
+                }}
+              />
+            </button>
+          </div>
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-12 h-full">
@@ -82,7 +84,7 @@ const HeaderSection: React.FC = () => {
             <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-outline-brand h-14 px-8 text-[13px] min-w-[200px] flex items-center justify-center"
+                className="btn-outline-brand h-11 lg:h-12 px-8 text-[13px] min-w-[180px] flex items-center justify-center"
               >
                 Calculate your number
               </button>
@@ -110,9 +112,9 @@ const HeaderSection: React.FC = () => {
                 className="flex items-center"
               >
                 <img 
-                  src="/Logo/svg icon.svg" 
+                  src="/Logo/svg-icon.svg" 
                   alt="Logo" 
-                  className="h-16 w-auto object-contain"
+                  className="h-10 lg:h-12 w-auto object-contain"
                 />
               </button>
               <button
