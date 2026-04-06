@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect, useState, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, MapPin, Clock, CheckCircle, Calendar as CalendarIcon, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, CheckCircle, Calendar as CalendarIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
